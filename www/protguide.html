@@ -1,0 +1,203 @@
+  <script>
+  $( document ).ready(function(){
+	var checkboxValues = JSON.parse(localStorage.getItem('PAGcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
+
+	$checkboxes.on("change", function(){
+  		$checkboxes.each(function(){
+    		checkboxValues[this.id] = this.checked;
+  		});
+  
+  		localStorage.setItem("PAGcheckboxValues", JSON.stringify(checkboxValues));
+	});
+
+	$.each(checkboxValues, function(key, value) {
+  		$("#" + key).prop('checked', value);
+	});
+});
+  </script>
+<div id="checkbox-container">
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" class="panel-heading panel-protect accordion-toggle">PROTECTIVE ACTION GUIDELINES</div>
+<div id="collapse1" class="panel-collapse collapse in">
+<p>This chapter provides guidelines and procedures for protective actions when hazardous conditions develop to the degree that emergency responders must take action to protect the public at risk. Threatened or hazardous areas may be created by, but are not limited to: fires, hazardous material spills, transportation accidents, floods, WMD incidents, civil disturbances, among others. Ideally, protective actions are progressive, usually initiated by alerting the public in the affected area, controlling access, sheltering in-place, and finally, evacuation. However, these actions may be implemented simultaneously based on the hazard, complexity of the emergency, and the type and size of the affected area. The key to successfully conducting protective action operations is sound planning.
+</p>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse2" class="panel-heading panel-protect accordion-toggle collapsed">Authority</div>
+<div id="collapse2" class="panel-collapse collapse">
+<p>Whenever law enforcement / health officials feel that an area must be evacuated or closed to protect the public, the following legal bases shall provide the authority to do so:
+  </p>
+<ol>
+  <li>Sec. 16, Local Government Code: General Welfare
+  </li>
+  <li>DILG Memorandum Circular No 2003-144: “Zero Casualty” in Times of Calamity
+  </li>
+  <li>International Quarantine Law
+  </li>
+  <li>RA 9271 or Quarantine Act of 2004
+  </li>
+  <li>Other government issuances
+  </li>
+</ol>
+<p>If residents refuse to comply, that refusal should be noted and the IC advised.
+</p>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse3" class="panel-heading panel-protect accordion-toggle collapsed">Phases of Protective Action</div>
+<div id="collapse3" class="panel-collapse collapse">
+<ol>
+  <li><strong>Initial Assessment and Notifications</strong>
+<ul>
+  <li>Identify hazard and risk to the public.
+      </li>
+      <li>Determine the affected area and plot on the map.
+      </li>
+      <li>Notify RO of disaster situation and recommend protective action.
+      </li>
+      <li>With clearance from the RO, notify appropriate agency with regard to recommended protective action.
+      </li>
+      <li>Ensure, if evacuation is planned, that evacuation centers are identified in safe areas.
+      </li>
+      <li>Ensure, if evacuation is planned, that management of ECs has been delegated to identified agencies, whether government or non-government.
+      </li>
+  </ul>
+  </li>
+  <li><strong>Evacuation Warning (Level 1 [(Yellow] Alert).</strong> Information dissemination to alert people of potential threat to life and property. This level considers the probability that the area will be affected and prepares people for potential evacuation order. </li>
+  <li><strong>Pre-emptive Evacuation Order (Level 2 [Orange] Alert).</strong> Vulnerable sectors (children; elderly; pregnant and lactating women; persons with disability) will be evacuated to pre-identified designated evacuation centers. </li>
+  <li><strong>Forced Evacuation Order (Level 3 [Red] Alert).</strong> All residents of identified areas that will be probably affected will be evacuated to safe areas. </li>
+  <li><strong>Rescue.</strong> Emergency actions taken by trained responders with appropriate PPE within the affected area to recover and remove injured or trapped residents. Boundaries of the areas where rescue is planned should be identified on the incident map with notation that entry is restricted to rescue workers only. </li>
+</ol>
+<div class="panel panel-default" id="note">
+<div class="panel-heading panel-note">NOTE</div>
+<div class="panel-body">
+  <p>Follow the above procedures when applicable. Refer to the specific hazard warning systems by the warning agencies.</p></div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse4" class="panel-heading panel-protect accordion-toggle collapsed">Immediate Evacuation Checklist</div>
+<div id="collapse4" class="panel-collapse collapse">
+
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP01">  Has ICP been established?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP02"> 
+  Have all cooperating agencies collocated with ICP?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP03"> 
+  If UC had been established, did UC/ICs jointly assess and report incident potential and request adequate resources to accomplish agreed upon objectives?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP04"> 
+  If UC had been established, was the incident Evacuation Plan been jointly developed? Was the planning process conducted under the unified command process with input from lead and support agencies, mindful that many local jurisdictions have developed emergency evacuation plans?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP05"> 
+  Is/Are the area(s) under an immediate threat identified and plotted on a map?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP06"> 
+  Is/Are the potential area(s) of risk based on spread of the incident identified and plotted on a map?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP07"> 
+  Have routes to nearest evacuation center(s)/safe location(s) been identified and plotted on a map?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP08"> 
+  Has the number of persons to be evacuated been determined?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP09"> 
+  Has the lead time (window of opportunity) with which to implement and complete evacuation been determined?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP10"> 
+  Give more time and details when planning evacuation for special facility and populations: hospitals; home for the aged; prison facilities; etc.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protP11"> 
+  Has the Evacuation Plan been disseminated/shared to the IMT members and the external stakeholders?
+  </label>
+</div>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse5" class="panel-heading panel-protect accordion-toggle collapsed">Re-entry Planning Checklist</div>
+<div id="collapse5" class="panel-collapse collapse">
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protR01">  Has re-entry date and time been determined?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protR02"> 
+  Has/Have safe area(s) to be re-entered been identified?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protR03"> 
+  Is the threat mitigated?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protR04"> 
+  Are power lines secured?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protR05"> 
+  Are transportation hazards mitigated: roads cleared; bridges inspected as to integrity; debris removed; etc.?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protR06"> 
+  Is re-entry approved by law enforcement?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protR07"> 
+  Is re-entry approved by health officials?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protR08"> 
+  Is re-entry approved by IC?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protR09"> 
+  Is re-entry approved by RO as recommended by local emergency services (EOC / DOC)?
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="protR10"> 
+  Are utility agencies notified?
+  </label>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</div>

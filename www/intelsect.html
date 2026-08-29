@@ -1,0 +1,244 @@
+  <script>
+  $( document ).ready(function(){
+	var checkboxValues = JSON.parse(localStorage.getItem('IIScheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
+
+	$checkboxes.on("change", function(){
+  		$checkboxes.each(function(){
+    		checkboxValues[this.id] = this.checked;
+  		});
+  
+  		localStorage.setItem("IIScheckboxValues", JSON.stringify(checkboxValues));
+	});
+
+	$.each(checkboxValues, function(key, value) {
+  		$("#" + key).prop('checked', value);
+	});
+});
+  </script>
+  <div id="checkbox-container">
+  <div class="panel-group" id="accordion">  
+  
+<div class="panel panel-default">
+<div class="panel-heading panel-intel accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">INTELLIGENCE / INVESTIGATION</div>
+<div id="collapse1" class="panel-collapse collapse in">
+<p>The analysis and sharing of information and intelligence (or investigation) are important elements of ICS. In this context, intelligence includes not only national security or other types of classified information but also other operational information, such as risk assessments, medical intelligence (i.e., surveillance), weather information, geospatial data, structural designs, toxic contaminant levels, and utilities and public works data that may come from a variety of different sources. Intelligence must be appropriately analyzed and shared with personnel, designated by the IC, who have proper clearance and a “need-to-know” to assist them in decision-making.
+  </p>
+<p><strong>Definition of “Information”</strong>
+  </p>
+<p>“Knowledge of a particular event or situation.” In this instance it could include details related to your resource order, transportation, the incident location, and contacts.
+  Under the working definition for this course, information is primarily intended for external use.
+  </p>
+<p><strong>Definition of “Intelligence”</strong>
+  </p>
+<p>“The capacity to acquire and apply knowledge.”
+  </p>
+<p>Specific details related to the physical characteristics of the incident and current and expected conditions and how they affect the actions taken to abate the incident. Intelligence is an aspect of information.
+  </p>
+<p>In the working definition for this course, Intelligence is primarily intended for internal use.
+  </p>
+<p>Intelligence needs may include, but not limited to, the following:
+  </p>
+<ul>
+  <li>Type of incident
+  </li>
+  <li>Current resource commitments o Current situation status
+  </li>
+  <li>Expected duration of incident o Terrain
+  </li>
+  <li>Weather (current and expected)
+  </li>
+  <li>Responsible Officials’/Agency Official briefing requirements (as appropriate)</li>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-intel accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">Sources of Intelligence</div>
+<div id="collapse2" class="panel-collapse collapse">
+
+<ul>
+  <li>Home and host agency coordination centers (Dispatch, EOC, AOP, etc.)
+  </li>
+  <li>Responsible Official/Agency Official
+  </li>
+  <li>Out-going IC and IMT
+  </li>
+  <li>Internet (PAGASA, NOAH-DOST, LIDAR-DOST, PHIVOLCS, AFP, PNP, DOH, etc.)
+  </li>
+  <li>Existing intelligence documentation:
+    <ul>
+      <li>Incident Status Summary,
+      </li>
+      <li>SITREP (Situation Report)
+      </li>
+      <li>Incident Status Summary (<a class="other-link" data-page="icsforms" href="#collapse209">ICS 209</a>)
+      </li>
+      <li>Operational Planning Worksheet (<a class="other-link" data-page="icsforms" href="#collapse215">ICS 215</a>)
+      </li>
+      <li>Field Observers of Planning Section Situation Unit
+      </li>
+    </ul>
+  </li>
+  <li>Work closely with Operations
+    <ul>
+      <li>Gather any type of intelligence, including intelligence for the SITREP
+      </li>
+      <li>Debrief with Situation Unit Leader
+      </li>
+    </ul>
+  </li>
+  </ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-intel accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">Information and Intelligence: Differences</div>
+<div id="collapse3" class="panel-collapse collapse">
+
+<div class="table-responsive">
+<table border="1">
+  <tr>
+    <th scope="col">Information</th>
+    <th scope="col">Intelligence</th>
+    </tr>
+  <tr>
+    <td><ul>
+      <li>Information is external
+      </li>
+      <li>Information knowledge is for public consumption. It is to motivate or guide public actions and reactions to the incident and agencies involved.
+      </li>
+      <li>Some unprocessed information, if disseminated out of context, may cause public panic.</li>
+    </ul>      </td>
+    <td><ul>
+      <li>Intelligence is internal
+      </li>
+      <li>Intelligence knowledge is for internal consumption to guide and assist the action planning process. Generally the level of detail is more specific.
+      </li>
+      <li>Intelligence is processed information that is needed to manage the incident.
+      </li>
+      <li>Some processed and vetted information (intelligence) cannot be divulged to the public.
+      </li>
+      <li>Some processed and vetted information (intelligence), if leaked and disseminated out of context, may cause public panic.</li>
+    </ul>      </td>
+    </tr>
+</table>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-intel accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">Information and Intelligence: Similarities</div>
+<div id="collapse4" class="panel-collapse collapse">
+
+<ul>
+  <li>Both involve knowledge of facts, probabilities, and possibilities.
+  </li>
+  <li>Both come from many of the same sources: field observers, field information officers, dispatch centers, command and general staff, investigators, and assisting agencies.
+  </li>
+  <li>Both kinds of knowledge need to be processed before they can be put into a useful form.
+  </li>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-intel accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">Information and Intelligence Organizational Options</div>
+<div id="collapse5" class="panel-collapse collapse">
+
+<p>The information and intelligence function may be organized in one of the following ways:
+  </p>
+<p><strong>Within the Command Staff</strong> – This option may be most appropriate in incidents in which real-time incident-related intelligence is needed.
+  </p>
+<p><strong>As an Intelligence Technical Specialist</strong> – This option can be used for any situation because a Technical Specialist can be assigned where most needed in the ICS organization, but may be most appropriate when little intelligence information is required by the incident.
+  </p>
+<p><strong>As a Unit within the Planning Section</strong> – This option may be most appropriate in an incident with a need for tactical intelligence that can be handled by the Planning Section but requires a separate unit from the Situation Unit.
+  </p>
+<p><strong>As a Branch within the Operations Section</strong> – This option may be most appropriate in incidents with a high need for tactical intelligence actions.
+  </p>
+<p><strong>As a separate General Staff Section</strong> – This option may be most appropriate when an incident is heavily influenced by intelligence factors or when there is a need to manage and/or analyze a large volume of classified or highly sensitive intelligence or information. This option is particularly relevant to a terrorism incident, for which intelligence plays a crucial role throughout the incident life cycle. </p>
+<div id="IIS">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-intel accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">Intelligence Officer / Unit Leader / Group Supervisor / Branch Director</div>
+<div id="collapse6" class="panel-collapse collapse">
+
+<p>Initially reports to the IC, PSC or the OSC. In large or complex incident, Intelligence may report to the Law Enforcement Group Supervisor or Branch Director. Based on the needs of the incident, intelligence may be assigned as a Unit Leader under Planning or a Group under Operations/Branch.
+  </p>
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisP01">Analyzes and shares intelligence that may be related to National Security, classified information, or other operational information, such as risk assessments, medical intelligence (i.e. surveillance).
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisP02">Analyzes and shares intelligence and information about weather, geospatial data, structural designs, toxic contaminant levels, utilities and public works data coming from a variety of sources.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisP03">Develops, conducts, and manages information-related security plans and operations, as directed by the Incident Commander.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisP04">Protects sensitive information of all types (e.g. classified information, sensitive law enforcement information, proprietary and personal information, or export-controlled information) and ensures its transfer to those who need access to it (proper clearance, “need-to-know” basis) so that they can conduct their missions safely and effectively.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisP05">Coordinates information and operational security matters with public awareness activities that fall under the responsibility of the PIO, particularly where such public awareness activities may affect information or operations security.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisP06">Coordinates with Investigative Unit Leader.
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisS01">Collects and processes situational information.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisS02">Focuses on identification of potential suspects.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisS03">Develops and maintains a working relationship with local, regional, and national law enforcement agencies. 
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisS04">Obtains, complies and provides intelligence with OSC and PSC.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisS05">Reviews method of operation by suspect(s).
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisS06">Gathers information of suspects and victims.
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisT01">Considers other additional support needs.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="iisT02">Maintains Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>).
+  </label>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>

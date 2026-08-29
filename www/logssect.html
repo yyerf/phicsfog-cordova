@@ -1,0 +1,1219 @@
+  <script>
+  $( document ).ready(function(){
+	var checkboxValues = JSON.parse(localStorage.getItem('LSCcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
+
+	$checkboxes.on("change", function(){
+  		$checkboxes.each(function(){
+    		checkboxValues[this.id] = this.checked;
+  		});
+  
+  		localStorage.setItem("LSCcheckboxValues", JSON.stringify(checkboxValues));
+	});
+
+	$.each(checkboxValues, function(key, value) {
+  		$("#" + key).prop('checked', value);
+	});
+});
+  </script>
+  <div id="checkbox-container">
+<div class="panel-group" id="accordion">
+
+<div class="panel panel-default">
+<div class="panel-heading panel-logs accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">LOGISTICS SECTION</div>
+<div id="collapse1" class="panel-collapse collapse in">
+<p>The Logistics Section is responsible for providing facilities, services, and materials in support of the incident response. The LSC participates in developing and implementing the IAP and activates and supervises Branches and Units within the Logistics Section. The LSC may have Deputy LSC’s, who may be from the same agency or from an assisting agency. The Deputy LSC must have the same qualifications as the person for whom they work, as they must be ready to take over that position at any time.</p>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-logs accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">Organizational Chart</div>
+<div id="collapse2" class="panel-collapse collapse">
+
+<p><img src="img/logs.png" class="img-responsive center-block" width="403" height="252" alt="Logistics Section Organizational Chart">
+</p>
+<div id="LSC">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-logs accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">Logistics Section Chief (LSC)</div>
+<div id="collapse3" class="panel-collapse collapse">
+
+<p>The LSC is responsible for:
+  </p>
+<ul>
+  <li>Working closely with the IC / UC in anticipating and providing all incident support requirements
+  </li>
+  <li>Ordering all resources through appropriate procurement methods
+  </li>
+  <li>Providing and establishes all incident facilities, transportation, supplies, equipment maintenance and fueling, food service, communications, and medical services for incident personnel
+  </li>
+  <li>Staffing, organizing, and supervising the logistics section
+  </li>
+  <li>Planning for relief and replacement of staff, as appropriate
+  </li>
+  <li>Preparing for and participating in the operational planning process
+  </li>
+  <li>Completing necessary ICS forms for the IAP
+  </li>
+  <li>Providing periodic status reports to the IC / UC
+  </li>
+  <li>May assign a Deputy LSC to assist in supervising Logistics activities
+  </li>
+</ul>
+
+<p><strong>Primary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscP02">Plan the organization of the Logistics Section
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscP06">Assemble and brief Logistics Branch Directors and Unit Leaders
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscP04">Assign work locations and preliminary tasks to Section personnel
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscS01">Notify Resource Unit Leader of the Logistics Section Units activated, including names and locations of assigned personnel
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscS02">Determine and supply immediate incident resource and facility needs
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscS03">In conjunction with Command, develop and advise all Sections of the IMT resource approval and requesting process
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscS04">Review proposed tactics for upcoming operational period for ability to provide resources and logistical support
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscS05">Identify long-term service and support requirements for planned and expected operations
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscS06">Advise Command and other Section Chiefs on resource availability to support incident needs
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT01">Provide input to and review the Communications Plan, Medical Plan, and Traffic Plan
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT02">Identify resource needs for incident contingencies
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT03">Coordinate and process requests for additional resources
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT04">Track resource effectiveness and make necessary adjustments
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT05">Advise on current service and support capabilities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT06">Request and/or set up expanded ordering processes as appropriate to support incident
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT07">Develop recommended list of Section resources to be demob and initiate recommendation for release when appropriate
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT08">Receive and implement applicable portions of the incident Demobilization Plan
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT09">Ensure the general welfare and safety of Logistics Section personnel.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT10">Participate in after-action process
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lscT11">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+<div id="SVBD">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-svbdh accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">Service Branch Director (SVBD)</div>
+<div id="collapse4" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdP03">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdP04">Obtain working materials from Logistics kit
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdP05">Determine the level of service required to support operations.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdP06">Confirm dispatch of Branch personnel.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdP07">Participate in planning meetings of Logistics Section
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdS01">Review the IAP
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdS02">Organize and prepare assignments for Service Branch personnel
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdS03">Coordinate activities of Branch Units
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdS04">Inform the LSC of Branch activities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdS05">Resolve Service Branch problems
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="svbdT01">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="COML">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-svbd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">Communication Unit Leader (COML)</div>
+<div id="collapse5" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlP03">Determine Unit personnel needs
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlP04">Prepare and implement the Incident Radio Communications Plan (<a class="other-link" data-page="icsforms" href="#collapse205">ICS 205</a>)
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlP05">Ensure the Incident Communications Center and the Message Center is established
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlP06">
+  Establish appropriate communications distribution / maintenance locations within the Base
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlP07">Ensure communications systems are installed and tested
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlP08">Ensure an equipment accountability system is established
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlP09">Ensure personal portable radio equipment from cache is distributed per Incident Radio Communications Plan
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlS01">Provide technical information as required on:
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlS02">Adequacy of communications systems currently in operation
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlS03">Geographic limitation on communications systems
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlS04">
+  Equipment capabilities / limitations
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlS05">Amount and types of equipment available
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlS06">Anticipated problems in the use of communications equipment
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlS07">Supervise Communications Unit activities
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlT01">Maintain records on all communications equipment as appropriate
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlT02">Ensure equipment is tested and repaired
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlT03">Recover equipment from Units being demobilized
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="comlT04">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="MEDL">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-svbd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">Medical Unit Leader (MEDL)</div>
+<div id="collapse6" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlP01">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlP02">Participate in Logistics Section/Service Branch planning activities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlP03">Determine level of emergency medical activities performed prior to activation of Medical Unit
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS01">Establish the Medical Unit
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS02">Prepare the Medical Plan (<a class="other-link" data-page="icsforms" href="#collapse206">ICS 206</a>)
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS03">Provide medical input into the planning process for strategy development
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS04">Coordinate with Safety Officer, Operations, Tech specialists, and others on proper personnel protection procedures for incident personnel
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS05">Prepare procedures for major medical emergency
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS06">Develop transportation routes and methods for injured incident personnel
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS07">Ensure incident personnel patients are tracked as they move from origin, care facility, and disposition
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS08">Provide continuity of medical care for incident personnel
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS09">Declare major medical and public health emergencies, as appropriate
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS10">Provide or oversee medical and rehab care delivered to incident personnel
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS11">Monitor health aspects of incident personnel including excessive incident stress
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlS12">Respond to requests for medical aid, medical transportation, and medical supplies
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlT01">Prepare medical reports and submit, as directed
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlT02">In conjunction with Finance / Administration Section, prepare and submit necessary authorizations, reports and administrative documentation related to injuries, compensation or death of incident personnel
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlT03">Coordinate personnel and mortuary affairs for incident personnel fatalities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlT04">Provide oversight and liaison as necessary for incident victims among emergency medical care, medical examiner and hospital care
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlT05">Provide for security and proper disposition of incident medical records
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="medlT06">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="FUDL">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-svbd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse7">Food Unit Leader (FUDL)</div>
+<div id="collapse7" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlP03">Determine location of working assignment, as well as number and location of personnel to be fed
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlP04">Determine the method of feeding to best fit each facility or situation
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlS01">Obtain necessary equipment and supplies to operate food service facilities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlS02">Set up Food Unit equipment
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlS03">Ensure that well-balanced menus are provided
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlS04">Order sufficient food and potable water from the Supply Unit
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlS05">Maintain an inventory of food and water
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlS06">Maintain food service areas, ensuring that all appropriate health and safety measures are being followed
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlS07">Supervise Food Unit personnel as appropriate
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fudlT01">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="SUBD">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-subdh accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse8">Support Branch Director (SUBD)</div>
+<div id="collapse8" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdP03">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdP04">Obtain work materials
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdP05">Identify Support Branch personnel dispatched to the incident
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdP06">Determine initial support operations in coordination with the LSC and SVBD
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdP07">Prepare initial organization and assignments for support operations
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdP08">Assemble and brief Support Branch personnel
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdP09">Determine if assigned Branch resources are sufficient
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdS01">Maintain surveillance of assigned Units work progress and inform the LSC of their activities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdS02">Resolve problems associated with requests from the Operations Section
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="subdT01">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="SUPL">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-subd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse9">Supply Unit Leader (SUPL)</div>
+<div id="collapse9" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplP03">Participate in Logistics Section / Support Branch planning activities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplP04">Provide kits, as developed by your local agency, to Planning, Logistics, and Finance / Administration Sections
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplP05">Determine the type and amount of supplies en route
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplP06">Arrange for receiving ordered supplies
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplP07">Review the IAP for information on operations of the Supply Unit
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplP08">Develop and implement safety and security requirements
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplS01">Order, receive, distribute, and store supplies and equipment, and coordinate contracts and resource orders with the Finance / Adminstration Section
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplS02">Receive and respond to requests for personnel, supplies and equipment
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplT01">Maintain an inventory of supplies and equipment
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplT02">Coordinate service of reusable equipment
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplT03">Submit reports to the SUBD
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="suplT04">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+<div id="ORDM">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-subd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse10">Ordering Manager (ORDM)</div>
+<div id="collapse10" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmP02">Obtain necessary agency(s) order forms
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmP03">Establish ordering procedures
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmP04">Establish name and telephone numbers of agency(s) personnel receiving orders
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmP05">Set up filing system
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmP06">Obtain roster of incident personnel who have ordering authority
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmP07">Obtain list of previously ordered supplies and equipment
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmP08">Ensure order forms are filled out correctly
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmP09">Place orders in a timely manner
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmP10">Consolidate orders, when possible
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmS01">Identify times and locations for delivery of supplies and equipment.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmS02">Keep RCDM informed of orders placed
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmS03">Submit all ordering documents to the Documentation Unit through the SPUL Leader before demobilization
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ordmT01">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="RDCM">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-subd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse11">Receiving and Distribution Manager (RDCM)</div>
+<div id="collapse11" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmP02">Order required personnel to operate supply area
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmP03">Organize the physical layout of the supply area
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmP04">Establish procedures for operating the supply area
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmP05">Set up a filing system for receiving and distributing supplies and equipment
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmP06">Maintain inventory of supplies and equipment
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmS01">Develop security requirement for supply area
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmS02">Establish procedures for receiving supplies and equipment
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmS03">Submit necessary reports to the SPUL
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmS04">Notify ORDM of supplies and equipment received
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmS05">Provide necessary supply records to SPUL Leader
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="rdcmT01">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="FACL">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-subd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse12"">Facilities Unit Leader (FACL)</div>
+<div id="collapse12" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclP03">Obtain a briefing from the SUBD or the LSC
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclP04">Receive and review a copy of the IAP
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclP05">Participate in Logistics Section / Support Branch planning activities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclP06">In conjunction with the Finance / Administration Section, determine locations suitable for incident support facilities and secure permission to use through appropriate means
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclP07">Inspect facilities prior to occupation and document conditions and preexisting damage
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclP08">Determine requirements for each facility, including the ICP
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclS01">Prepare layouts of incident facilities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclS02">Notify Unit Leaders of facility layout
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclS03">Activate incident facilities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclS04">Provide Facility Managers and personnel to operate facilities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclS05">Provide sleeping facilities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclS06">Provide security services
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclS07">Provide food and water service
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclS08">Provide sanitation and shower service, as needed
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclS09">Provide facility maintenance services, e.g., sanitation, lighting, clean up, trash removal, etc.
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclS10">Inspect all facilities for damage and potential claims
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclT01">Demobilize incident facilities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclT02">Restore area to pre-incident condition
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclT03">Maintain facility records
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="faclT04">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="SECM">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-subd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse13">Security Manager (SECM)</div>
+<div id="collapse13" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmP02">Establish contacts with local law enforcement agencies, as required
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmP03">Contact the Resource Use Specialist for crews or Agency Representatives to discuss any special custodial requirements that may affect operations
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmP04">Request required personnel support to accomplish work assignments
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmP05">Ensure security of classified material and/or systems
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmP06">Ensure that support personnel are qualified to manage security problems
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmP07">Develop Security Plan for incident facilities
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmS01">Adjust Security Plan for personnel and equipment changes and releases
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmS02">Coordinate security activities with appropriate incident personnel
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmS03">Keep the peace, prevent assaults and settle disputes through coordination with Agency Representatives
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmS04">Prevent theft of all government and personal property
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmS05">Document all complaints and suspicious occurrences
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="secmT01">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="BCMG">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-subd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse14">Base / Camp Manager (BCMG)</div>
+<div id="collapse14" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="bcmgP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="bcmgP02">Determine personnel support requirements
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="bcmgP03">Obtain necessary equipment and supplies
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="bcmgP04">Ensure that all facilities and equipment are set up and properly functioning
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="bcmgP05">Supervise the establishment of sanitation facilities, including showers, and sleeping facilities
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="bcmgS01">Make sleeping area assignments
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="bcmgS02">Adhere to all applicable safety and health standards and regulations
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="bcmgS03">Ensure that all facility maintenance services are provided
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="bcmgT01">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="GSUL">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-subd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse15">Ground Support Unit Leader (GSUL)</div>
+<div id="collapse15" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulP03">Participate in Logistics Section / Support Branch planning activities
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulP04">Coordinate development of the Transportation Plan with the Planning Section
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulP05">Develop and implement the Traffic Plan
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulS01">Support out-of-service resources
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulS02">Notify the Resources Unit of all status changes on support and transportation vehicles
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulS03">Arrange for and activate fueling, maintenance and repair of ground resources
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulS04">Maintain Support Vehicle Inventory and transportation vehicles (ICS-218)
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulS05">Provide transportation services
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulS06">Maintain usage information on rented equipment
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulS07">Requisition maintenance and repair supplies, e.g., fuel, spare parts
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulS08">Coordinate incident road maintenance
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulT01">Submit reports to SUBD as directed
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="gsulT02">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+<div id="EQPM">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-subd accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse16">Equipment Manager (EQPM)</div>
+<div id="collapse16" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmP02">Obtain the IAP to determine locations for assigned resources, Staging Area locations and fueling and service requirements for all resources
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmP03">Obtain necessary equipment and supplies
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmP04">Provide maintenance and fueling according to schedule
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmP05">Prepare schedules to maximize use of available transportation
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmP06">Provide transportation and support vehicles for incident use
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmP07">Coordinate with AREP on service and repair policies, as required
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmP08">Inspect equipment condition and ensure coverage by equipment agreement
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmP09">Determine supplies (e.g., gasoline, diesel, oil and parts needed to maintain equipment in an efficient operating condition) and place orders with the Supply Unit
+  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmS01">Maintain Support Vehicle Inventory (ICS-218)
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmS02">Maintain equipment rental records
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmS03">Maintain equipment service and use records
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmS04">Check all service repair areas to ensure that all appropriate safety measures are being taken
+  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="eqpmT01">Maintain Unit Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</div>

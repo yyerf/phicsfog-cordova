@@ -1,0 +1,507 @@
+  <script>
+  $( document ).ready(function(){
+	var checkboxValues = JSON.parse(localStorage.getItem('PSCcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
+
+	$checkboxes.on("change", function(){
+  		$checkboxes.each(function(){
+    		checkboxValues[this.id] = this.checked;
+  		});
+  
+  		localStorage.setItem("PSCcheckboxValues", JSON.stringify(checkboxValues));
+	});
+
+	$.each(checkboxValues, function(key, value) {
+  		$("#" + key).prop('checked', value);
+	});
+});
+  </script>
+<div id="checkbox-container">  
+<div class="panel-group" id="accordion">
+
+<div class="panel panel-default">
+<div class="panel-heading panel-plans accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">PLANNING SECTION</div>
+<div id="collapse1" class="panel-collapse collapse in">
+<p>The Planning Section is responsible for collecting, evaluating, disseminating, and using information about the incident and status of resources. Information is needed to:
+  </p>
+<ul>
+  <li>Understand the current situation
+  </li>
+  <li>Predict probable course of incident events
+  </li>
+  <li>Prepare alternative strategies for the incident
+  </li>
+  <li>Submit required incident status reports.
+  </li>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-plans accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">Organizational Chart</div>
+<div id="collapse2" class="panel-collapse collapse">
+<p><img src="img/plans.png" class="img-responsive center-block" width="414" height="203" alt="Planning Section Organizational Structure">
+</p>
+<div id="PSC">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-plans accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">Planning Section Chief (PSC)</div>
+<div id="collapse3" class="panel-collapse collapse">
+
+<p>The PSC is responsible for:
+  </p>
+<ul>
+  <li>Working closely with the OSC and the IC in formulating the best possible picture of the current situation.
+  </li>
+  <li>Working closely with the IC and the OSC in determining the incident strategies and tactical objectives.
+  </li>
+  <li>Staffing, organizing, and supervising the planning section
+  </li>
+  <li>Planning for relief and replacement of staff, as appropriate
+  </li>
+  <li>Preparing for and participating in the operational planning cycle
+  </li>
+  <li>Completing necessary ICS forms for the IAP
+  </li>
+  <li>Ensuring the IAP is constructed, copied, and disseminated to all incident personnel
+  </li>
+  <li>Communicating and implementing the IAP
+  </li>
+  <li>Provide periodic status reports to the IC
+  </li>
+  <li>May assign a deputy PSC to assist in supervising planning activities
+  </li>
+</ul>
+
+<p><strong>Primary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscP03">Activate the Planning Section units</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscP04">Organize, assign, and brief assistants</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscP05">Recon the incident visually or get the SITSTAT report from the OSC or IC, as appropriate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscP06">Gather, Prepare, and display incident  information (SITSTAT &amp; RESTAT)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscP07">Brief and assign operations personnel in accordance with the IAP</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscP08">Assign available personnel already on site to ICS organizational positions, as appropriate</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscS01">Organize and staff to gather special information needs, such as weather, environment, hazards, etc.</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscS02">Contemplate and formulate information on alternative strategies (best to worst case scenarios)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscS03">Provide periodic predictions on incident potential</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscS04">Compile and display incident status summary information</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscS05">Coordinate with the PIO on the current SITSTAT and RESTAT so that release of incident information is accurate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscS06">Provide status reports to appropriate requesters</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscS07">Advise General Staff of any significant changes in incident status</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscS08">Incorporate specialized plans (i.e., traffic, evacuation, foam, environment, and safety) Traffic, Plan (from GSUL), and other supporting plans in the IAP</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscS09">Instruct Planning Section Units in distribution and routing of incident information</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscT01">Supervise and ensure resource release recommendations (Demob Plan) for submission to the IC / UC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscT02">Maintain Section records</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscT03">Ensure the final incident documentation package is prepared and organized effectively</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscT04">Participate in after-action process</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pscT05">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </li>
+</ul>
+<div id="SITL">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-plans accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">Situation Unit Leader (SITL)</div>
+<div id="collapse4" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlP03">Start collecting and analyzing incident information, as soon as possible</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlP04">Participate in the operational planning process and meetings, as required by the PSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlP05">Conduct situation updates at meetings and briefings, as required by the PSC</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlS01">Prepare and maintain Incident Situation Display(s) (these may be maps, forms, weather reports, victim or damage assessment information, and other reports from technical specialists)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlS02">Provide photographic services and maps</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlS03">Collect and maintain current incident data, as required by the Incident Information Center</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlS04">Prepare periodic predictions, as requested by the PSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlS05">Prepare, post, and disseminate resource and situation center</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlS06">Prepare the Incident Status Summary (<a class="other-link" data-page="icsforms" href="#collapse209">ICS 209</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlS07">Provide status report to the PSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlS08">Provide status reports to appropriate requesters</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlT01">
+  Develop and maintain master chart(s) / map(s) of the incident</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlT02">Receive briefings and information from field observers</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sitlT03">
+  Maintain Unit / Activities Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+  </div>
+</ul>
+<div id="RESL">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-plans accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">Resource Unit Leader (RESL)</div>
+<div id="collapse5" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslP03">  Participate in the operational planning process and meetings, as required by PSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslP04">Conduct resource status updates at meetings and briefing as required by PSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslP05">Using the Incident Briefing (<a class="other-link" data-page="icsforms" href="#collapse201">ICS 201</a>), prepare and maintain the Incident Situation Display (organization chart and resources allocation and deployment sections)</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslS01">Establish check-in function at incident locations and work to achieve total accountability and tracking of all incident resources (personnel and equipment)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslS02">Establish contact with incident facilities to track resource status as Assigned, available, or Out of Service</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslS03">Gather, post, and maintain incident resource status; maintain master rooster of all resources checked in at the incident</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslS04">Prepare Organization Assignment List (<a class="other-link" data-page="icsforms" href="#collapse203">ICS 203</a>) and Organization Chart (ICS 207)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslS05">Prepare appropriate parts of Assignment Lists (<a class="other-link" data-page="icsforms" href="#collapse204">ICS 204</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslS06">Provide status report to the PSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslS07">Provide status reports to appropriate requesters</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="reslT01">Maintain Unit /Activities Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+<div id="DOCL">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-plans accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">Documentation Unit Leader (DOCL)</div>
+<div id="collapse6" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclP03">Collect and organize incident files information, forms, IAPs, information releases, and reports</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclS01">Establish duplication service and respond to requests</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclS02">File copies of all official forms and reports</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclS03">Check on accuracy and correct errors or omissions by contacting appropriate ICS units</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclS04">Provide incident documentation to appropriate requesters</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclS05">Provide status report to the PSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclS06">Provide status reports to appropriate requesters</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclT01">Organize files for submitting the final incident documentation package</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="doclT02">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </li>
+</ul>
+<div id="DMOB">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-plans accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse7">Demobilization Unit Leader (DMOB)</div>
+<div id="collapse7" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobP03">Review incident resource records to determine probable size of demobilization effort</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobP04">Identify surplus resources and probable release time</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobP05">Participate in the operational planning process and meetings, as required, by the PSC</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobS01">Monitor the on-going Operations Section resource needs
+    Evaluate logistics and transportation capabilities required to support demobilization</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobS02">Establish communications with off-incident facilities</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobS03">Prepare and obtain approval of demobilization Plan, including required decontamination</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobS04">Distribute Demobilization Plan to each processing point</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobS05">
+  Ensure that all Sections / Units understand their responsibilities within the Demobilization Plan</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobS06">Monitor the implementation and assist in coordinating the Demobilization Plan</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobS07">Coordinate demobilization with AREPs</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobS08">Brief PSC on progress of demobilization</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobS09">Provide status reports to appropriate requesters</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="dmobT01">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label></div>
+</ul>
+<div id="THSP">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-plans accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse8">Technical Specialist (THSP)</div>
+<div id="collapse8" class="panel-collapse collapse">
+<p>The ICS is designed to function in wide variety of incident scenarios where the use of technical specialists may be helpful or necessary. These personnel have special skills andare activated only when needed. Specialists may serve anywhere within the organization, including the Command Staff. No minimum qualifications are prescribed, as technical specialists normally perform the same duties during an incident that they perform in their everyday jobs, and they are typically specially certified in their fields or professions.</p>
+<ul>
+  <li>Agricultural specialist	</li>
+  <li>Historical or cultural resources specialist
+  </li>
+  <li>Attorneys or legal counsel	</li>
+  <li>Human resources specialist
+  </li>
+  <li>Biologists	</li>
+  <li>Medical specialist
+  </li>
+  <li>Cost specialist	</li>
+  <li>Meteorologist
+  </li>
+  <li>Environmental specialist	</li>
+  <li>Pharmaceutical specialist
+  </li>
+  <li>Explosives specialist	</li>
+  <li>Radiological specialist
+  </li>
+  <li>Fire behavior specialist	</li>
+  <li>Structure engineering specialist
+  </li>
+  <li>Hazardous materials specialist	</li>
+  <li>Training specialist
+  </li>
+  <li>Industrial hygienist	</li>
+  <li>Transportation specialist
+  </li>
+  <li>Infectious disease specialist	</li>
+  <li>Veterinarians
+  </li>
+  <li>Intelligence specialist	</li>
+  <li>Waste management specialist</li>
+</ul>
+<p>Any other expert or specialist that can assist with specific challenges of the incident.
+</p>
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspP02">Provide technical expertise and advise to command and General Staff, as needed</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspP03">Attend meeting and briefings, as appropriate, to clarify and help to resolve technical issues within area of expertise</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspS01">Provide technical expertise during the development of the IAP and other support plans</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspS02">Work with the Safety Officer (SOFR) to mitigate unsafe practices</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspS03">Work closely with Liaison Officer (LOFR) to help facilitate understanding among stakeholders and special interest groups</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspS04">Be available to attend press briefings to clarify technical issues</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspS05">Research technical issues and provide finding to decision makers</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspS06">Troubleshoot technical problems and provide advice on resolution</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspS07">Review specialized plans and clarify meaning</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="thspT01">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>) </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.knpn.phicsfog" version="8.1.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>phicsfog</name>
+    <name>PH ICS FOG</name>
+    <description>Condensed PH ICS Field Operations Guide for Mobile</description>
+    <author>Eric C. Colmenares / KNPN</author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <platform name="android">
+        <preference name="orientation" value="default" />
+        <preference name="android-minSdkVersion" value="33" />
+        <preference name="android-targetSdkVersion" value="33" />
+        <preference name="android-installLocation" value="auto" />
+        <preference name="android-signed" value="true" />
+        <preference name="Fullscreen" value="true" />
+        <preference name="AndroidLaunchMode" value="singleInstance" />
+        <icon density="ldpi" height="36" platform="android" src="package-assets/36x36.png" width="36" />
+        <icon density="mdpi" height="48" platform="android" src="package-assets/48x48.png" width="48" />
+        <icon density="hdpi" height="72" platform="android" src="package-assets/72x72.png" width="72" />
+        <icon density="xhdpi" height="96" platform="android" src="package-assets/96x96.png" width="96" />
+        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/uses-permission" xmlns:android="http://schemas.android.com/apk/res/android">
+            <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+        </edit-config>
+    </platform>
+</widget>

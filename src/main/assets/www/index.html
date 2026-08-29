@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+  <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+       
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport"
+    content="user-scalable=no, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval'; script-src * 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval'; script-src-elem * 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval'; script-src-attr * 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval'; style-src * 'self' data: 'unsafe-inline' 'unsafe-hashes'; style-src-elem * 'self' data: 'unsafe-inline' 'unsafe-hashes'; style-src-attr * 'self' data: 'unsafe-inline' 'unsafe-hashes'; img-src *; font-src *; connect-src *; media-src *; object-src *; prefetch-src *; base-uri *">
+  <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/additional.css">
+  <title>Philippines ICS Field Operations Guide</title>
+</head>
+
+<body>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/w3.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+  <script type="text/javascript" src="./js/socket.io/socket.io.js"></script>
+  <script type="module">
+    import { io } from "https://cdn.socket.io/4.5.3/socket.io.esm.min.js";
+    var socket = io("fs-support.glitch.me", {
+      transportOptions: {
+        polling: {
+          extraHeaders: {
+            "my-custom-headers": "abcd"
+          }
+        }
+      }
+    });
+  </script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC0NH6O6nkVJhe-ZxIWIzM5W061NSYsrEo",
+      authDomain: "ph-ics-field-operations-guide.firebaseapp.com",
+      databaseURL: "https://ph-ics-field-operations-guide.firebaseio.com",
+      projectId: "ph-ics-field-operations-guide",
+      storageBucket: "ph-ics-field-operations-guide.appspot.com",
+      messagingSenderId: "487512678274"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <script>
+    var backpage = [];
+    var currentdatapage = "home";
+    var socket;
+    $(document).ready(function () {
+      window.plugins.insomnia.keepAwake()
+      socket = io("fs-support.glitch.me", {
+      transportOptions: {
+        polling: {
+          extraHeaders: {
+            "my-custom-headers": "abcd"
+          }
+        }
+      }
+    });
+    console.log(socket);
+
+      var backs = 0;
+      backpage[0] = "";
+
+      today = new Date();
+      expiry = new Date(2026, 11, 31);
+
+      if ((today.getTime()) >= expiry.getTime()) {
+        alert('Application has expired. Please download update via Google Play.');
+        window.location.replace('\expired.html');
+        window.open('', '_parent', '');
+        window.close();
+        navigator.app.exitApp();
+      }
+      $(".main-container").load("home.html");
+
+
+      $(".backbutton").on("click", function () {
+        $(".acc-container").load("accordion.html");
+        //alert(backpage[backs]);
+        //backpage=currentdatapage;
+        currentdatapage = $(this).attr("data-page");
+        //alert(currentpage);
+        //alert(backpage);
+        if (backs > 1) {
+          backs--;
+          $(".main-container").load(backpage[backs] + ".html");
+          $(this).collapse('hide');
+        }
+        //admob.createBannerView();
+      });
+
+
+      $("ul.navbar-nav li.linked").each(function () {
+        $(this).on("click", function () {
+          $(".acc-container").load("accordion.html");
+          backs++;
+          backpage[backs] = $(this).attr("data-page");
+          //backpage[backs]=currentdatapage;
+
+          //alert(currentpage);
+          $(".main-container").load($(this).attr("data-page") + ".html");
+          $(this).collapse('hide');
+
+        });
+      });
+
+
+      //alert(backpage + ' ' + currentpage);
+      $(document).on('click', '.navbar-collapse.in', function (e) {
+        if ($(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle') {
+          $(this).collapse('hide');
+        }
+      });
+      //$(document).on('click', '#update-link', function() {  
+      //	 navigator.app.loadUrl('https://play.google.com/store/apps/details?id=com.knpn.phicsfog');
+      //});
+
+
+
+
+    });
+  </script>
+
+  <!------------------------>
+  <script>
+    /*function startGPS(){
+      alert('starting');
+      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+      var onSuccess = function(position) {
+        alert(position.coords.latitude + " " +position.coords.longitude);
+        $('#lat').text(position.coords.latitude);
+        $('#long').text(position.coords.longitude);
+      };
+      setTimeout(function() {
+        startGPS();
+      }, 5000);           
+    };
+    */
+
+
+
+
+
+  </script>
+
+  <script type="text/javascript">
+    $(window).on('load', function () {
+      
+      $('#splashscreen').modal('show');
+      setTimeout(function () {
+        $('#splashscreen').modal('hide');
+      }, 3000);
+      $('#splashscreen').modal('show');
+      setTimeout(function () {
+        if (localStorage.getItem("up819") == null) {
+          $('#modal-update').modal('show');
+          localStorage.setItem("up819", "yes")
+        }
+      }, 3000);
+      //setTimeout(function(){
+      //$(".main-container").load("about.html");
+      //}, 5000);
+
+    });
+  </script>
+
+  <div class="app">
+    <h1></h1>
+    <div id="deviceready" class="blink">
+      <p class="event listening"></p>
+      <p class="event received"></p>
+    </div>
+  </div>
+
+
+  <div class="modal modal-fullscreen fade " id="splashscreen">
+    <img src="img/splash3.png" class="img-responsive centered">
+  </div>
+  <div id="modal-update" class="modal">
+    <div class="modal-update">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+          <h4>What's New?</h4>
+        </div>
+        <div class="modal-body">
+          <p>Updates to version 8.1.9:
+          <ul>
+            <li>Mobile app runs on single instance.</li>
+            <li>Changed splash screen.</li>
+            <li>Added Downloads section for PH ICS Forms.</li>
+
+          </ul>
+          </p>
+          <p>From the developer:</p>
+          <p>Like our facebook page: fb.me/phicsfog<br>
+            We appreciate your comments and suggestions at our fb page.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn confirm" id="btnOK">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal-clear" class="modal">
+    <div class="modal-clear">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+          <h4>Warning!</h4>
+        </div>
+        <div class="modal-body">
+          <p>This action will clear ALL checklists. Do you wish to proceed?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn confirm" id="btnYes">Yes</button>
+          <button type="button" data-dismiss="modal" class="btn secondary" id="btnNo">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal-exit" class="modal">
+    <div class="modal-exit">
+      <div class="modal-content">
+        <div class="modal-header">
+          <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+          <h4>Warning!</h4>
+        </div>
+        <div class="modal-body">
+          <p>You are about to close the app. Changes to checklists have been saved.</p>
+          <p> Do you wish to proceed?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn confirm" id="btnYesExit">Yes</button>
+          <button type="button" data-dismiss="modal" class="btn secondary" id="btnNo">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(function () {
+      $('#modal-clear').on('show', function () {
+        var link = $(this).data('link'), confirmBtn = $(this).find('.confirm');
+      })
+    });
+
+    $(function () {
+      $('#btnYes').click(function () {
+        localStorage.clear();
+        $('#modal-clear').modal('hide');
+        $(".main-container").load(currentdatapage + ".html");
+        $(".acc-container").load("accordion.html");
+        //window.location.reload();
+        var idToToggle = window.location.hash;
+        if (idToToggle != '') {
+          $('#collapse1').collapse('hide');
+          $(idToToggle).collapse('show');
+        };
+      });
+    });
+    $(function () {
+      $('#modal-exit').on('show', function () {
+        var link = $(this).data('link'), confirmBtn = $(this).find('.confirm');
+      })
+    });
+    $(function () {
+      $('#btnOK').click(function () {
+        $('#modal-update').modal('hide');
+      });
+    });
+    $(function () {
+      $('#btnYesExit').click(function () {
+        window.open('', '_parent', '');
+        window.close();
+        navigator.app.exitApp();
+      });
+    });
+  </script>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle accordion-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span> Menu</span>
+        </button>
+        <a class="backbutton" href="#"><button type="button" class="btn btn-default navbar-btn pull-left"> <i
+              class="glyphicon glyphicon-chevron-left"></i></button></a>
+        <a class="navbar-brand" href="#">PH ICS FOG</a>
+      </div>
+      <div class="collapse navbar-collapse in" id="myNavbar">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="linked" data-page="about"><a href="#" style="background:#F2F2F2;">About</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">ICS Principles<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="linked" data-page="overv"><a href="#">Overview</a></li>
+              <li class="linked" data-page="planningp"><a href="#">Planning Process</a></li>
+              <li class="linked" data-page="mgmopt"><a href="#">Management Options</a></li>
+              <li class="linked" data-page="typing"><a href="#">Incident Typing</a></li>
+              <li class="linked" data-page="transfer"><a href="#">Transfer of Command</a></li>
+              <li class="linked" data-page="protguide"><a href="#">Protective Action</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background:#F2F2F2;">Responsibilities<span
+                class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="linked" data-page="commonresp"><a href="#">Common Responsibilities</a></li>
+              <li class="linked" data-page="roresp"><a href="#">Responsible Official</a></li>
+              <li class="linked" data-page="command"><a href="#">Incident Command</a></li>
+              <li class="linked" data-page="command"><a href="#collapse4">Public Information Officer</a></li>
+              <li class="linked" data-page="command"><a href="#collapse5">Safety Officer</a></li>
+              <li class="linked" data-page="command"><a href="#collapse6">Liaison Officer</a></li>
+              <li class="linked" data-page="opssect"><a href="#">Operations Section Chief</a></li>
+              <li class="linked" data-page="plansect"><a href="#">Planning Section Chief</a></li>
+              <li class="linked" data-page="logssect"><a href="#">Logistics Section Chief</a></li>
+              <li class="linked" data-page="finssect"><a href="#">Finance and Administration Section Chief</a></li>
+              <li class="linked" data-page="intelsect"><a href="#">Intelligence and Investigation</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">References<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="linked" data-page="issuances"><a href="#">NDRRMC Issuances</a></li>
+              <li class="linked" data-page="suppplans"><a href="#">Supplementary Documents</a></li>
+              <li class="linked" data-page="macs"><a href="#">Multi-Agency Coordination System</a></li>
+              <li class="linked" data-page="orgguide"><a href="#">Organizational Guide</a></li>
+              <li class="linked" data-page="icsformsummary"><a href="#">ICS Forms Summary</a></li>
+              <li class="linked" data-page="icsforms"><a href="#">ICS Forms Fill-up Guide</a></li>
+              <li class="linked" data-page="mapsymbol"><a href="#">Map Standards</a></li>
+              <li class="linked" data-page="glossary"><a href="#">Glossary</a></li>
+              <li class="linked" data-page="acronym"><a href="#">Acronyms</a></li>
+
+            </ul>
+
+          </li>
+          <li class="linked" data-page="faqs"><a href="#" style="background:#F2F2F2;">FAQs</a></li>
+          <li class="linked" data-page="downloads"><a href="#">Downloads</a></li>
+          <li class="linked" data-page="tools"><a href="#" style="background:#F2F2F2;">Tools</a></li>
+          <li class="linked" data-page="imtog"><a href="#">IMT Operating Guidelines</a></li>
+          <li><a href="#modal-clear" style="background:#F2F2F2;" class="modal-toggle" data-toggle="modal"
+              data-href="http://localhost.testing/modal-processing.php" data-modal-type="confirm"
+              data-modal-title="Delete Property"
+              data-modal-text="Are you sure you want to delete {$property.address_string}?"
+              data-modal-confirm-url="{$base_url}residential-lettings/properties/do-delete/property/{$property.id}"><i
+                class="icon-trash"></i>Clear Data</a></li>
+          <script>
+      //  <li><a href="#modal-exit" class="modal-toggle" data-toggle="modal" data-href="http://localhost.testing/modal-processing.php" data-modal-type="confirm" data-modal-title="Delete Property" data-modal-text="Are you sure you want to delete {$property.address_string}?" data-modal-confirm-url="{$base_url}residential-lettings/properties/do-delete/property/{$property.id}"><i class="icon-trash"></i>Exit</a></li>
+          </script>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="acc-container"></div>
+
+  <div class="main-container"></div>
+
+  <nav class="navbar  navbar-fixed-bottom navbar-bottom">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="bottom-bar"><a>Ver.8.1.9 &nbsp;|&nbsp;eccolmenares@gmail.com &nbsp;|&nbsp; +639174339080</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!------------------------>
+
+</body>
+
+</html>

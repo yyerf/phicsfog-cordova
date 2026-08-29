@@ -1,0 +1,400 @@
+  <script>
+  $( document ).ready(function(){
+	var checkboxValues = JSON.parse(localStorage.getItem('ICcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
+
+	$checkboxes.on("change", function(){
+  		$checkboxes.each(function(){
+    		checkboxValues[this.id] = this.checked;
+  		});
+  
+  		localStorage.setItem("ICcheckboxValues", JSON.stringify(checkboxValues));
+	});
+
+	$.each(checkboxValues, function(key, value) {
+  		$("#" + key).prop('checked', value);
+	});
+});
+  </script>
+<div id="checkbox-container">
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" class="panel-heading panel-command accordion-toggle">COMMAND</div>
+<div id="collapse1" class="panel-collapse collapse in">
+<p>Command refers jointly to the persons and functions of the IC and its command staff.</p>
+<p>  <strong>Guidelines for Command Staff</strong></p>
+<ol>
+  <li>  Only one person will be designated for each position;<br>
+  </li>
+  <li>Command Staff positions should not be combined;<br>
+  </li>
+  <li>Command Staff positions may be filled by persons from other agencies or jurisdictions;<br>
+  </li>
+  <li>Each of the positions may have assistants as necessary:<br>
+    <ol type="a">
+      <li>Assistants are recommended &amp; encouraged for larger incidents<br>
+      </li>
+      <li>Assistants can be designated from other jurisdictions or agencies<br>
+      </li>
+    </ol>
+  </li>
+  <li>Command Staff members should report directly to the IC;<br>
+  </li>
+  <li>Command Staff members may interact with any position within the ICS for purposes of information sharing; and<br>
+  </li>
+  <li>Always exchange information.
+  </li>
+</ol>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse2" class="panel-heading panel-command accordion-toggle collapsed">Organizational Chart</div>
+<div id="collapse2" class="panel-collapse collapse">
+<p><img src="img/command.png" class="img-responsive center-block" width="221" height="122" alt="Command Organization Structure"></p>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse3" class="panel-heading panel-command accordion-toggle collapsed">Incident Commander</div>
+<div id="collapse3" class="panel-collapse collapse">
+
+<p>The Incident Commander (IC) is the individual responsible for all incident activities, including the development of strategies and tactics and the ordering and the release of resources. The IC has overall authority and responsibility for conducting incident operations and is responsible for the management of all incident operations at the incident site. The IC may use one or more deputies to perform specific tasks, reduce the IC’s span of control, or work in a relief capacity.</p>
+<p>  <strong>Primary Responsibilities</strong></p>
+
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icP03">Get a briefing from the previous IC, or assess the situation
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icP04">Brief command and general staff and give initial assignments, including specific delegation of authority</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icP05">Establish the Incident Command Post (ICP)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icP06">Name the incident</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icP07">Don the IC vest and activate the ICP signal</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icS01">Establish the appropriate ICS structure and staff positions, as needed</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icS02">Establish incident objectives (strategy)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icS03">Ensure adequate safety measures and messages is in place and communicated to all workers</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icS04">Ensure adherence to the operational planning process </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT01">Coordinate activity of all command and general staff</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT02">Direct staff to develop plans and staffing requirements; approve requests for additional resources and funding</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT03">Prepare and participate in the planning process and meetings</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT04">Approve and authorize the implementation of an IAP</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT05">Approve the release of information by the PIO</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT06">Determine if operational periods are necessary</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT07">Coordinate with outside entities, as necessary</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT08">Evaluate and ensure that incident objectives are being accomplished</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT09">Manage requests or release of resources, as appropriate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT10">Ensure incident investigation, as necessary</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT11">Ensure after-action process is completed and reports filled</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="icT12">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+
+<div id="PIO">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse4" class="panel-heading panel-command accordion-toggle collapsed">Public Information Officer</div>
+<div id="collapse4" class="panel-collapse collapse">
+<p>Determine reasons or factors on the need to have a PIO:<br>
+  </p>
+<ul>
+  <li>Is it high visibility incident?<br>
+  </li>
+  <li>Are the media taking IC’s time?<br>
+  </li>
+  <li>Will they get their information anyway?<br>
+  </li>
+  <li>Are there multiple agencies involved?<br>
+  </li>
+</ul>
+<p><strong>Primary Responsibilities</strong><br>
+</p>
+
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioP03">Organize, assign, and brief assistants</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioP04">
+  Determine from the IC / UC limits on information release</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioP05">
+  Obtain IC / UC approval for media releases</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioS01">Manage media and public inquiries</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioS02">Coordinate emergency public information and warnings</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioS03">Establish any restrictions for media access</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioS04">Inform media and conduct briefings</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioS05">Arrange for tours and other interviews</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioS06">Obtain news media information that may be useful for incident planning</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioS07">Maintain current information summaries and/or displays</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioT01">Provide information on status of incident to assistants</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioT02">
+  Brief and advise IC / UC on information issues and concerns</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioT03">Participate in operational planning processes</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioT04">Prepare appropriate ICS forms and other information to be included in the IAP</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioT05">Establish and staff a JIC, as necessary</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioT06">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioT07">Prepare, organize, and provide appropriate information to the Documentation Unit</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pioT08">Participate in the after-action process</label>
+</div>
+</ul>
+
+<div id="SOFR">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-command accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">Safety Officer</div>
+<div id="collapse5" class="panel-collapse collapse">
+<p>The SOFR monitors incident operations and advises the IC / UC on all matters relating to operational safety, including the health and safety of emergency responder personnel. The SOFR has emergency authority of the IC / UC to stop or prevent unsafe acts during the incident operations.</p>
+<p>  <strong>Primary Responsibilities</strong><br>
+  </p>
+
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrP03">Organize, assign, and brief assistants</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrP04">Recon the incident visually</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrP05">Identify appropriate PPEs control zones, and safety hazards</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrS01">Participate in operational planning processes</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrS02">Review and approve the Medical Plan (<a class="other-link" data-page="icsforms" href="#collapse206">ICS 206</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrS03">
+  Develop the Risk / Hazard analysis (<a class="other-link" data-page="icsforms" href="#collapse215A">ICS 215A</a>) with the OSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrS04">Prepare appropriate ICS forms and other information to be included in the IAP</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrS05">Ensure personnel accountability is in place and working</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrS06">Exercise emergency authority to prevent or stop unsafe acts</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrS07">
+  Ensure working conditions are monitored and work / rest guidelines are adhered to</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrT01">
+  Brief IC / UC on safety issues and concerns</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrT02">Designate emergency evacuation guidelines</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrT03">Investigate accidents within incident areas</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrT04">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrT05">Prepare, organize, and provide appropriate information to the Documentation Unit</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="sofrT06">Participate in the after-action process
+  </label>
+</div>
+</ul>
+
+<div id="LOFR">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-command accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">Liaison Officer</div>
+<div id="collapse6" class="panel-collapse collapse">
+<p>Why establish an LOFR?<br>
+  </p>
+
+<ul>
+  <li>Several assisting and cooperating agencies are sending Agency Representatives<br>
+  </li>
+  <li>IC no longer has time for individual Coordination<br>
+  </li>
+</ul>
+<p><strong>Primary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrP03">Organize, assign, and brief assistants</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrP04">Provide a point of contact for assisting and cooperating AREPs</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrP05">Identify all AREPs from agencies and develop complete contact information</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrS01">Keep agencies supporting the incident aware of incident status</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrS02">Monitor incident operations to identify current or potential inter-organizational issues and advise IC, as appropriate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrS03">
+  Brief IC / UC on agency issues and concerns</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrS04">Participate in operational planning processes</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrT01">Prepare appropriate ICS forms and other information to be included in the IAP</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrT02">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrT03">Prepare, organize, and provide appropriate information to the Documentation Unit</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="lofrT04">Participate in the after-action process</label>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</div>

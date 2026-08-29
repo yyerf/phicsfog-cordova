@@ -1,0 +1,414 @@
+  <script>
+  $( document ).ready(function(){
+	var checkboxValues = JSON.parse(localStorage.getItem('FASCcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
+
+	$checkboxes.on("change", function(){
+  		$checkboxes.each(function(){
+    		checkboxValues[this.id] = this.checked;
+  		});
+  
+  		localStorage.setItem("FASCcheckboxValues", JSON.stringify(checkboxValues));
+	});
+
+	$.each(checkboxValues, function(key, value) {
+  		$("#" + key).prop('checked', value);
+	});
+});
+  </script>
+<div id="checkbox-container">
+<div class="panel-group" id="accordion">
+
+<div class="panel panel-default">
+<div class="panel-heading panel-finance accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">Finance / Administration SECTION</div>
+<div id="collapse1" class="panel-collapse collapse in">
+<p>The Finance / Administration Section is responsible for all financial and cost analysis aspects of the incident.
+</p>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-finance accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">Organizational Chart</div>
+<div id="collapse2" class="panel-collapse collapse">
+
+<p><img src="img/finance.png" class="img-responsive center-block" width="361" height="176" alt="Finance / Administration Section Organizational Chart">
+</p>
+<div id="FASC">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-finance accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">Finance / Administration Section Chief (FASC)</div>
+<div id="collapse3" class="panel-collapse collapse">
+
+<p>The FASC is responsible for:
+  </p>
+<ul>
+  <li>Working closely with the IC / UC in estimating, tracking, and approving all incident expenses
+  </li>
+  <li>Monitoring and coordinating funding from multiple sources
+  </li>
+  <li>Ensuring that all local, regional, and national laws are complied with, in regard to spending
+  </li>
+  <li>Staffing, organizing, and supervising the Finance / Administration Section
+  </li>
+  <li>Planning for relief and replacement of staff, as appropriate
+  </li>
+  <li>Preparing for and participating in operational planning process (refer to planning cycle)
+  </li>
+  <li>Completing necessary ICS forms for the IAP
+  </li>
+  <li>Providing periodic status reports to the IC
+  </li>
+  <li>May assign a Deputy FASC to assist in supervising Finance activities
+  </li>
+</ul>
+
+<p><strong>Primary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascP03">Attend briefing with response agency to gather information</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascP04">Participate in operational planning process and meetings to gather information on overall strategy (refer to planning cycle)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascP05">Manage all financial aspects of the incident</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascP06">Provide financial and cost analysis information as requested</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascP07">Review operational plans and provide alternatives, where financially appropriate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascP08">
+  Determine resource needs of the Finance / Administration section</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascP09">Develop an operating plan for Finance? Administration function on incident</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascP10">Prepare work objectives for subordinates, brief staff, make assignments, and evaluate performance</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascS01">Inform members of Command and General Staff when Section is fully operational</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascS02">Meet with AREPs as required</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascS03">Provide input in all planning sessions on financial and cost analysis matters</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascS04">Maintain daily contact with agency administrative headquarters on finance matters</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascS05">Ensure that all personnel time records are transmitted to home agency according to policy</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascT01">Participate in all demobilization planning</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascT02">Ensure that all obligation documents initiated at the incident are properly prepared and completed</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascT03">Brief agency administrative personnel on all incident related financial issues needing attention or follow-up prior to leaving the incident</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascT04">Develop recommended list of section resources to be demobilized and initial recommendation for release, when appropriate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascT05">Release resources in conformance with the Demobilization Plan</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascT06">Participate in the after-action process</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="fascT07">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</li>
+</ul>
+<div id="COMP">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-finance accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">Compensation / Claims Unit Leader (COMP)</div>
+<div id="collapse4" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compP03">Establish contact with MEDL, SOFR, LOFR, and AREPs</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compP04">Determine the need for Compensation-for-Injury and Claims Specialist and staff unit, as needed.</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compS01">If possible, co-locate Compensation-for-Injury work area with the Medical Unit</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compS02">Obtain a copy of the Incident Medical Plan (<a class="other-link" data-page="icsforms" href="#collapse206">ICS 206</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compS03">Coordinate with Procurement Unit in procedures for handling claims</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compS04">Periodically review documents produced by subordinates</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compT01">Obtain Demobilization Plan and ensure that Compensation-for-injury and Claims Specialists are adequately briefed on Demobilization Plan</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compT02">
+  Ensure that all Compensation-for-injury and claims documents are up to date and routed to the proper company / agency</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compT03">Keep FASC briefed on Unit status and activity</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compT04">Demobilize Unit in accordance with the demobilization plan</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="compT05">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+<div id="COST">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-finance accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">Cost Unit Leader (COST)</div>
+<div id="collapse5" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costP03">Coordinate with agency headquarters on cost reporting procedures</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costS01">Obtain and record all cost data</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costS02">Prepare incident cost summaries</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costS03">Prepare source-use cost estimates for Planning</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costS04">Make recommendations for cost savings to FSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costS05">Maintain cumulative incident cost records</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costS06">Ensure that all cost documents are accurately prepared</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costT01">Complete all records prior to demobilization</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costT02">Provide reports to FSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="costT03">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </li>
+</ul>
+<div id="PUL">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-finance accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">Procurement Unit Leader (PUL)</div>
+<div id="collapse6" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulP03">Contact appropriate Unit Leaders in incident needs and any special procedures</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulP04">Coordinate with local jurisdictions on plans and supply sources</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulP05">
+  Create / Obtain the Incident Procurement Plan</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulS01">Prepare and sign contracts and land use agreements, as needed</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulS02">Draft memorandum of understanding (MOU)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulS03">Establish contracts with supply vendors as required</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulS04">Coordinate between the Ordering Manger and all other property management
+    requirements</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulS05">Ensure proper accounting for all new property</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulS06">Interpret contracts / agreements and resolve claims or disputes within delegated authority</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulS07">
+  Coordinate with Compensation / Claim Unit on procedures for handling claims</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulS08">Finalize all agreements and contracts</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulS09">Complete final processing and send documents for payment</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulT01">Coordinate cost data in contracts with COST</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="pulT02">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+<div id="TIME">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-finance accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse7">Time Unit Leader (TIME)</div>
+<div id="collapse7" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeP02">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeP03">Establish and maintain a file for personnel time reports within the first operational period</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeP04">Determine and obtain Unit Staffing</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeP05">Contact appropriate AREPs</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeS01">Initiate, gather, or update a time report from all applicable personnel assigned to the incident</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeS02">Verify that all personnel identification information is correct on the time report</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeS03">Post personnel travel and work hours, transfers, promotions, specific pay provisions, and terminations to personnel time documents</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeS04">Ensure that time reports are signed</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeS05">Close out time documents prior to personnel leaving the incident</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeS06">
+  Distribute all time documents according to company / agency policy</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeT01">Maintain records security</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeT02">Ensure all records are current and complete, prior to demobilization</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeT03">Brief FASC on current problems and recommendation, outstanding issues, and follow-up requirements</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="timeT04">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+</div>
+</div>
+</div>
+</div>

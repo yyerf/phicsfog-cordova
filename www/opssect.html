@@ -1,0 +1,711 @@
+  <script>
+  $( document ).ready(function(){
+	var checkboxValues = JSON.parse(localStorage.getItem('OSCcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
+
+	$checkboxes.on("change", function(){
+  		$checkboxes.each(function(){
+    		checkboxValues[this.id] = this.checked;
+  		});
+  
+  		localStorage.setItem("OSCcheckboxValues", JSON.stringify(checkboxValues));
+	});
+
+	$.each(checkboxValues, function(key, value) {
+  		$("#" + key).prop('checked', value);
+	});
+});
+  </script>
+<div id="checkbox-container">
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">OPERATIONS SECTION</div>
+<div id="collapse1" class="panel-collapse collapse in">
+<p>The Operations Section is responsible for managing tactical operations at the incident site to reduce immediate hazards, save lives and property, establish situation control and restore normal conditions.
+</p>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">Organizational Chart</div>
+<div id="collapse2" class="panel-collapse collapse">
+<p><img src="img/ops.png" class="img-responsive center-block" width="264" height="265" alt="Operations Section Organizational Structure">
+</p>
+<div id="OSC">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">Operations Section Chief (OSC)</div>
+<div id="collapse3" class="panel-collapse collapse">
+<p>The Operations Section Chief (OSC) activates and supervises elements in accordance with the Incident Action Plan (IAP) by:<br>
+  </p>
+<ul>
+  <li>Directing the execution of the IAP</li>
+  <li>Activating and executing the Site </li>
+  <li>Safety and Health Plan</li>
+  <li>Directing and preparing the unit operational plans</li>
+  <li>Requesting or releasing resources</li>
+  <li>Making  expedient changes to the IAPs, as necessary</li>
+  <li>Reporting to the IC / UC</li>
+  <li>May assign a deputy OSC to assist in supervising operations activities</li>
+</ul>
+
+<p><strong>Primary Responsibilities</strong><br>
+</p>
+
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscP03">Evaluate, organize, assign and brief Ops Section staff</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscP04">Recon the incident visually, if possible</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscP05">Develop and implement operations portion of IAP</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscP06">Supervise Ops Section personnel</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscS01">Supervise execution of IAP for Operations</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscS02">Coordinate with SOFR to carry out operational activities while complying with all safety requirements</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscS03">Monitor and request resources needed to implement Operation’s Tactics as part of the IAP development (<a class="other-link" data-page="icsforms" href="#collapse215">ICS 215</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscS04">Implement effective strategies and tactics to meet operations objectives</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscS05">
+  Assist the SOFR in developing the risk / hazard analysis (<a class="other-link" data-page="icsforms" href="#collapse215A">ICS 215A</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscS06">Make , or approve, expedient changes to the IAP during the operational period, as necessary</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscS07">Monitor and evaluate the current situation status and make recommendations for use in the next operational period</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscS08">Prepare and Participate in the tactics meeting (refer to Planning cycle)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscS09">Participate in the Operational planning process and development of the tactical portions of the IAP (<a class="other-link" data-page="icsforms" href="#collapse204">ICS 204</a> and ICS 220) (refer to Planning cycle)</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT01">Inform RESL of changes in the status of resources assigned to section</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT02">Approve suggested list of resources to be released from assigned status (not </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT03">released from incident)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT04">
+  Assemble and disassemble teams / task forces assigned to Ops Section</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT05">Organize the Ops section effectively to ensure manageable span of control and safe operations of all Ops personnel</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT06">Report information about changes in the implementation of the IAP, special activities, events, and occurrences to IC / UC, as well as to PSC and PIO</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT07">Identify and use staging areas as necessary/ appropriate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT08">Develop and make recommendations to plan for demobilization of Ops resources</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT09">Receive and implement demobilization plans</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT10">Participate in operational briefings to IMT members, media, community and dignitaries</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="oscT11">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse4">Staging Area Manager (STAM)</div>
+<div id="collapse4" class="panel-collapse collapse">
+<p><strong>Primary Responsibilities</strong><br>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamP02">Organize, assign, and brief assistant/s</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamP03">Plan and organize the staging area for quick and effective deployment of resources</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamP04">Establish expected resource levels from the OSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamP05">Advice OSC when resource levels reach minimums</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamS01">Establish and maintain boundaries of staging areas</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamS02">Post signs for identification and traffic control</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamS03">Establish check-in function as appropriate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamS04">Determine and request logistical support for personnel and equipment as needed</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamS05">Ensure security at staging area</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamS06">
+  Advise OSC of all changing situations / conditions on scene</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamS07">Respond to requests of resource assignments</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamS08">Respond to requests for information, as required</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamS09">Keep RESL informed of the status of all resources in staging area</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamT01">Arrange for maintenance needs for resources in Staging area</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamT02">
+  Establish an accountability system for all resources / equipment checked in and out of the Staging Area</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamT03">Demobilize or reposition staging areas as needed</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="stamT04">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse5">Branch Director (OPBD)</div>
+<div id="collapse5" class="panel-collapse collapse">
+<p><strong>Primary Responsibilities</strong><br>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdP03">Identify branch organization and resources</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdP04">Organize, assign, brie assistants, and ensure that all supervisors have copy of the current IAP</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdS01">Implement the IAP for the branch</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdS02">Develop, with subordinates, alternative branch control operations</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdS03">Attend meetings and briefings at the request of the OSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdS04">Review Division / Group assignments list (<a class="other-link" data-page="icsforms" href="#collapse204">ICS 204</a>) for Divisions / Groups within branch; modify lists based on effectiveness of current operations</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdS05">
+  Assign specific work tasks to Division / Group Supervisors</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdS06">Supervise Branch operations</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdS07">Report to OSC when IAP is to be modified, additional resources are needed, surplus of resources are available, hazardous situations or significant events occur.</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdT01">Keep RESL (through chain of command) informed of resource status of resources assigned to the branch</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdT02">Approve accident and medical reports (home agency forms) originating within the branch</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdT03">Evaluate demobilization and implement demobilization plan, when appropriate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdT04">Debrief with OSC at the end of each operational period</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="opbdT05">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse6">Division or Group Supervisor (DIVS)</div>
+<div id="collapse6" class="panel-collapse collapse">
+<p><strong>Primary Responsibilities</strong><br>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsP03">Identify Division / Group organization and resources</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsP04">Organize, assign, brief assistants</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsP05">Provide copies of the current IAP to subordinates</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsP06">Implement IAP for Division / Group</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsP07">Supervise Division / Group resources, making changes, as needed</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsS01">Review Division / Group assignments and incident activities with subordinates and assign tasks</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsS02">Coordinate activities with other Divisions</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsS03">Determine need for assistance on assigned tasks</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsS04">Submit situation and resources status information to Branch Director or OSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsS05">Report special occurrences or events such as accidents or sickness to the immediate supervisor</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsS06">Resolve logistics problems within Division / Group</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsT01">Keep RESL (through chain of command) informed of resource status of resources assigned to the branch</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsT02">Participate in the development of Branch plans for the next operational period (Refer to Planning Cycle)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsT03">Evaluate demobilization and implement demobilization plan, when appropriate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsT04">Debrief with OSC at the end of each operational period</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="divsT05">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse7">Strike Team or Task Force Leader (TFL))</div>
+<div id="collapse7" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong><br>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="tflP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="tflP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="tflP03">Organize, assign, brief assistants and assign tasks</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="tflS01">Monitor work progress and make changes, when necessary</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="tflS02">Keep supervisor informed of progress, changes and resources status/ needs</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="tflS03">
+  Coordinate activities with other Strike Team / Task Force Leader and single resources</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="tflS04">Submit situation and resources status information to Division or Group Supervisor</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="tflT01">Retain control of resources while in available or out-of-service status</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="tflT02">Debrief with OSC at the end of each operational period</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="tflT03">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse8">Single Resource Boss (SRB)</div></a>
+<div id="collapse8" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong><br>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbP03">Review assignments</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbP04">Obtain necessary equipment/ supplies</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbP05">Review weather/ environmental conditions for assignment area</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbP06">Brief subordinates on safety measures</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbS01">Monitor work progress</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbS02">Ensure adequate communications with supervisor and subordinates</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbS03">Keep supervisor informed of progress and any changes</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbS04">Inform supervisor of problems with assigned resources assigned to the branch</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbS05">Brief relief personnel and advise them of any change in conditions</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbT01">Return equipment and supplies to appropriate unit</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbT02">Complete and turn in all time and use records on personnel and equipment</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbT03">Keep RESL (through chain-of-command) informed of resource status assigned to the branch</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbT04">Evaluate demobilization and implement demobilization plan, when appropriate</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbT05">Debrief with OSC at the end of each operational period</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="srbT06">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse9">Air Operations Branch Director (AOBD)</div>
+<div id="collapse9" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong><br>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdP03">Organize preliminary air operations</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdP04">Coordinate with the Civil Aviation Administration of the Philippines (CAAP)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdP05">Request declaration (or cancellation) of Temporary Flight Restriction in accordance with CAAP rules, as required</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdP06">Attend the tactics and planning meetings to obtain information for completing the Air Operations Summary Worksheet (ICS 220), as needed (Refer to planning cycle)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdP07">Participate in the preparation of the IAP through the OSC</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdP08">Ensure that the air operations portion of the IAP takes into consideration the Air Traffic Control (ATC) requirements assigned aircraft</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdP09">Coordinate with COML to designate air, tactical and support frequencies</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdP10">Ensure dependable communication between air operation branch and units</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdS01">Perform operational planning for air operations</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdS02">Prepare and provide Air Operations Summary Worksheet (ICS 220), if completed, to the Air Support Group (ASG) and fixed wing bases</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdS03">Supervise all air operations activities associated with the incident</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdS04">Evaluate helibase and helispot locations<br>
+    establish procedures for emergency assignment for aircraft</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdS05">Coordinate approved flights of non-accident aircraft in the TFR</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdS06">Initiate airspace deconfliction (in coordination with CAAP)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdS07">Coordinate with appropriate Command Center/s through normal channels on incident air operations activities</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdS08">Report any special incidents/ accidents</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdS09">Develop Aviation Site Safety Plan in concept with SOFR</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdT01">Arrange for an accident investigation team, when warranted</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdT02">Debrief with OSC, as directed, at the end of each operational period</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdT03">Ensure that SAFECOMS are documented and reported</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="aobdT04">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse10">Air Tactical Group Supervisor (ATGS)</div>
+<div id="collapse10" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong><br>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsP03">Obtain a copy of Air Operations Summary Worksheet (ICS 220) from AOBD</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsS01">Participate in air operations planning activities (refer to planning cycle)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsS02">Inform AODB of group activities</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsS03">Identify resources / supplies dispatched for the Air Tactical Group</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsS04">Request special air tactical items from appropriate sources through Logistics Section</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsS05">Coordinate activities AOBD</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsS06">Obtain assigned ground-to-air frequency for airbase operations from the COML or Incident Radio Communications Plan (<a class="other-link" data-page="icsforms" href="#collapse205">ICS 205</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsS07">Inform AOBD of capability to provide night flying service</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsT01">Ensure compliance with each agency’s operations checklist for day and night operations</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsT02">Debrief, as directed, at the end of each shift</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsT03">Monitors SAFENETS and ensures that the AOBD receives them in a timely manner</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="atgsT04">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)
+  </label>
+</div>
+</ul>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading panel-ops accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" data-target="#collapse11">Air Support Group Supervisor (ASGS)</div>
+<div id="collapse11" class="panel-collapse collapse">
+
+<p><strong>Primary Responsibilities</strong><br>
+  </p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsP01">Review <a class="other-link" data-page="commonresp" href="#collapse3">common responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsP02">Review <a class="other-link" data-page="commonresp" href="#collapse5">leadership responsibilities</a></label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsP03">Obtain a copy from the AOBD, including Air Operations Summary Worksheet (ICS 220)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsP04">Participate in air operations planning activities (refer to planning cycle)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsP05">Inform AOBD of group activities</label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsS01">Identify resources / supplies dispatched for the Air Tactical Group</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsS02">Request special air tactical items from appropriate sources through Logistics </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsS03">Section</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsS04">Determine the need for assignment of personnel and equipment at each airbase</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsS05">Coordinate activities AOBD</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsS06">Obtain assigned ground-to-air frequency for airbase operations from the COML or </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsS07">Incident Radio Communications Plan (<a class="other-link" data-page="icsforms" href="#collapse205">ICS 205</a>)</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsS08">Inform AOBD of capability to provide night flying service</label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities</strong><br>
+</p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsT01">Ensure compliance with each agency’s operations checklist for day and night operations
+  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsT02">Ensure dust abatement procedures are implemented at helibase and helispots</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsT03">Provide crash rescue service for helibases and helispots</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsT04">Debrief, as directed, at the end of each shift</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="asgsT05">Maintain Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>)</label>
+</div>
+</ul>
+</div>
+</div>
+</div>

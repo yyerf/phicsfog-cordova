@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "487512678274",
+    "firebase_url": "https://ph-ics-field-operations-guide.firebaseio.com",
+    "project_id": "ph-ics-field-operations-guide",
+    "storage_bucket": "ph-ics-field-operations-guide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487512678274:android:00a38bd8f57ad593",
+        "android_client_info": {
+          "package_name": "com.knpn.phicsfog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487512678274-b4qgcd1ga2p27epsp38ktlglcl0d0aac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1VJmji-c0eR7zkcVc8N9BUO44ZYugSuQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

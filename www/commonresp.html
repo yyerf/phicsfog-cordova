@@ -1,0 +1,246 @@
+  <script>
+  $( document ).ready(function(){
+	var checkboxValues = JSON.parse(localStorage.getItem('CRcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
+
+	$checkboxes.on("change", function(){
+  		$checkboxes.each(function(){
+    		checkboxValues[this.id] = this.checked;
+  		});
+  
+  		localStorage.setItem("CRcheckboxValues", JSON.stringify(checkboxValues));
+	});
+
+	$.each(checkboxValues, function(key, value) {
+  		$("#" + key).prop('checked', value);
+	});
+});
+  </script>
+<div id="checkbox-container">
+
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" class="panel-heading panel-commonresp accordion-toggle">COMMON RESPONSIBILITIES</div>
+<div id="collapse1" class="panel-collapse collapse in">
+<p>
+Every person working under the ICS organization has common responsibilities and tasks. Upon receipt of your assignment, make sure you have the following information:
+</p>
+<ol>
+  <li>Job assignment (e.g., Strike Team designation, overhead position, etc.)  </li>
+  <li>Resource order number and request number  </li>
+  <li>Reporting location  </li>
+  <li>Reporting time  </li>
+  <li>Travel instructions  </li>
+  <li>Any special communications instructions, e.g., radio frequency
+    Terms of Reference. </li>
+</ol>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse2" class="panel-heading panel-commonresp accordion-toggle collapsed">Accountability Procedures</div>
+<div id="collapse2" class="panel-collapse collapse"><p>
+<strong>Check-In</strong> - all deployed personnel and all responders, regardless of agency / department affiliation, must check-in to the incident and receive an assignment, following the procedures established by the IMT. </p>
+<ol>
+  <li>Upon arrival at the incident, check in at designated Check-in location. Check-in may be found at:
+    <ul>
+      <li>Incident Command Post</li>
+      <li>Base or Camps    </li>
+      <li>Staging Areas    </li>
+      <li>Helibases </li>
+    </ul>
+  </li>
+  <li>If you are instructed to report directly to a line assignment, check in with the Division / Group Supervisor.
+  </li>
+  <li>Receive briefing from immediate supervisor.
+  </li>
+  <li>Prepare and acquire work materials.
+  </li>
+  <li>Conduct all tasks in a manner that ensures safety and welfare of you and your co-workers utilizing accepted risk analysis methods.
+  </li>
+  <li>Organize and brief subordinates.</li>
+  <li> Know the assigned frequency/ies for your area of responsibility and ensure that communication equipment is operating properly.
+  </li>
+  <li>Use clear text and ICS terminology (no codes) in all radio communications.
+  </li>
+  <li>Complete forms and reports required of the assigned position and send through supervisor to Documentation Unit.
+  </li>
+  <li>Respond to demobilization orders and brief subordinates regarding demobilization.
+  </li>
+</ol>
+<p><strong>Incident Action Plan (IAP)</strong> - The IAP drives incident operations and tasking. Changes must be communicated and coordinated with the OSC who communicates and gets approval of the IC or UIC. Response operations must be directed and coordinated as outlined in the IAP.
+  </p>
+<p><strong>Unity of Command</strong> – All members of the ICS organization will have only one direct supervision. This will prevent accountability breakdown. Each individual involved in incident operations is assigned to only one supervisor. </p>
+<p><strong>Span of Control</strong> - Adequate management by supervisors is a must. Within ICS is a manageable span of control: minimum of 3 personnel, optimum of 5, and maximum is 7 per function per supervisor. Ideally the ratio is 1:5. Supervisors must be able to effectively manage their subordinates and the resources. </p>
+<p><strong>Resource Tracking</strong> - Any change in the resource status should be recorded by the supervisor and reported to the resource unit leader. Mark them as “Available”, “Assigned” and “Out of Service”.</p>
+<div id="CR">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div id="comresp" class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse3" id="comresp" class="panel-heading panel-commonresp accordion-toggle collapsed">Common Responsibilities Checklist</div>
+<div id="collapse3" class="panel-collapse collapse">
+<p>
+  <strong>Primary Responsibilities</strong></p>
+<ul>
+<div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnP01">Receive assignment, reporting location, reporting time and travel instruction</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnP02">Get a short description of the Incident</label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnP03">Receive special communication instruction</label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnP04">Monitor incident status using radio and Quad Media</label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnP05">Acquire and organize work materials such as PPEs and others</label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnP06">Use travel time to rest</label>
+</div>
+</ul>
+
+<p><strong>Secondary Responsibilities  </strong></p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnS01">Upon arrival, check in at the check in location</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnS02"> Receive briefing from the immediate supervisor  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnS03">Participate in IMT meetings and briefings, as required  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnS04">Maintain effective accountability for assigned personnel and resources  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnS05">Ensure compliance with all safety practices and procedures  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnS06">Supervisor to organize, assign, and brief the assistant  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities  </strong></p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnT01">Use clear text and ICS terminology  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnT02">Complete necessary and required documentation, including your own Unit Log  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnT03">Ensure equipment’s is operational prior to each work period  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnT04">Brief replacement related to operations when changing shifts  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnT05">Demobilize as directed  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="cmnT06">Participate in the after action process </label>
+</div>
+</ul>
+<div id="UL">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse4" class="panel-heading panel-commonresp accordion-toggle collapsed">Unit Leader Responsibilities Checklist</div>
+<div id="collapse4" class="panel-collapse collapse">
+<p>
+A number of the Unit Leader responsibilities are common to all units of the ICS organization. Common responsibilities of Unit Leaders are listed below:
+</p>
+
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="untP01">Participate in incident planning meetings as required  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="untP02">Determine current status of unit activities  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="untP03">Confirm dispatch and estimated time of arrival of staff and supplies  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="untP04">Assign specific duties to staff and supervise staff  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="untP05">Develop and implement accountability, safety, security, and risk management measures for personnel and resources  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="untP06">Supervise demobilization of unit, including storage of supplies  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="untP07">Provide Supply Unit Leader with a list of supplies to be replenished  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="untP08">Maintain unit records, including Unit / Activity Log (<a class="other-link" data-page="icsforms" href="#collapse214">ICS 214</a>) </label>
+</div>
+</ul>
+<div id="LDR">
+    <h1 style="padding-top: 40px; margin-top: -40px;"></h1>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse5" class="panel-heading panel-commonresp accordion-toggle collapsed">Leadership Responsibilities Checklist</div>
+<div id="collapse5" class="panel-collapse collapse">
+<p>
+  <strong>Primary Responsibilities </strong></p>
+
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrP01">Review personnel checklist</label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrP02">After checking in and confirming assignments, receive briefing from your supervisor  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrP03">Participate in meetings and the operation planning process as required  </label>
+</div>
+</ul>
+<p><strong>Secondary Responsibilities  </strong></p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrS01">Evaluate the current status of the assigned area and resource.  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrS02">Assess resource needs  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrS03">Request additional resources as needed  </label>
+</div>
+</ul>
+<p><strong>Tertiary Responsibilities  </strong></p>
+<ul>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrT01">Utilize the accountability procedures employed on the incident  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrT02">Ensure full compliance with all safety practices  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrT03">Facilitate demobilization of resources within the area of responsibility  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrT04">Debrief assigned personnel before demobilization  </label>
+</div>
+  <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrT05">Maintain unit records including UNIT log</label>
+</div>
+      <div class="checkbox">
+  <label><input type="checkbox" value="" id="ldrT06">Perform personnel performance ratings </label>
+</div>
+</ul>
+</div>
+</div>
+</div>

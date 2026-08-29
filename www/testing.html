@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<title>Philippines ICS Field Operations Guide</title>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="css/bootstrap.min.css">
+  	<link rel="stylesheet" href="css/additional.css">
+
+  	<script src="js/jquery.min.js"></script>
+  	<script src="js/bootstrap.min.js"></script>
+  	<script src="js/w3.js"></script>
+	<script>
+        Date.prototype.today = function () { 
+        return ((this.getDate() < 10)?"0":"") + this.getDate() +"/"+(((this.getMonth()+1) < 10)?"0":"") + (this.getMonth()+1) +"/"+ this.getFullYear();
+        }
+        
+        if((new Date().today()) >= "31/12/2017")
+        {
+            alert('Application has expired. Please email eccolmenares@gmail.com for update.');
+                    window.open('','_parent','');
+                    window.close();
+                    navigator.app.exitApp();
+        }
+    </script>
+
+	<script>
+        $(document).ready(function() {
+		
+			$('#accordion').on('shown.bs.collapse', function () {
+			  	var panel = $(this).find('.in');
+			  	$('html, body').animate({ 
+					scrollTop: panel.offset().top - 100
+			  	}, 500);
+			});
+			
+			$(document).on('click','.navbar-collapse.in',function(e) {
+				if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+						$(this).collapse('hide');
+				}
+			});
+        });
+    
+    </script>
+</head>
+<body>
+    <div id="modal-clear" class="modal">
+        <div class="modal-clear">
+          <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                 <h3>Warning!</h3>
+            </div>
+            <div class="modal-body">
+                 <p>This action will clear ALL checklists. Do you wish to proceed?</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" id="btnYes" class="btn confirm">Yes</a>
+              <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">No</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div id="modal-exit" class="modal">
+        <div class="modal-exit">
+          <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                 <h3>Warning!</h3>
+            </div>
+            <div class="modal-body">
+                 <p>You are about to close the app. Changes will be saved. Do you wish to proceed?</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" id="btnYesExit" class="btn confirm">Yes</a>
+              <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">No</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+	<script>
+		$(function() {
+			$('#modal-clear').on('show', function() {
+				var link = $(this).data('link'),confirmBtn = $(this).find('.confirm');
+			})
+		}); 
+		
+		$(function() {
+			$('#btnYes').click(function() {
+				localStorage.clear();
+				$('#modal-clear').modal('hide');
+				window.location.reload(); 
+			}); 
+		});
+		$(function() {
+			$('#modal-exit').on('show', function() {
+				var link = $(this).data('link'),confirmBtn = $(this).find('.confirm');
+			})
+		}); 
+		
+		$(function() {
+			$('#btnYesExit').click(function() {
+				localStorage.clear();
+				$('#modal-exit').modal('hide');
+				window.open('','_parent','');
+				window.close();
+				navigator.app.exitApp();
+			}); 
+		});
+    </script>
+<nav class="navbar navbar-default navbar-fixed-top" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        Menu          
+      </button>
+      <a class="navbar-brand" href="index.html">PH ICS Field Operations Guide</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="linked" data-page="about"><a href="#">About</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">ICS<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="linked" data-page="overv"><a href="#">Overview</a></li>
+              <li class="linked" data-page="planningp"><a href="#">Planning Process</a></li>
+              <li class="linked" data-page="mgmtoptions"><a href="#">Management Options</a></li>
+              <li class="linked" data-page="typing"><a href="#">Incident Typing</a></li>
+              <li class="linked" data-page="transfer"><a href="#">Transfer of Command</a></li>
+              <li class="linked" data-page="protguide"><a href="#">Protective Action</a></li>
+            </ul>
+      	</li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Responsibilities<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="linked" data-page="commonresp"><a href="#">Common Responsibilities</a></li>
+              <li class="linked" data-page="roresp"><a href="#">Responsible Official</a></li>
+              <li class="linked" data-page="command"><a href="#">Incident Command</a></li>
+              <li class="linked" data-page="command"><a href="#">Public Information Officer</a></li>
+              <li class="linked" data-page="command"><a href="#">Safety Officer</a></li>
+              <li class="linked" data-page="command"><a href="#">Liaison Officer</a></li>
+              <li class="linked" data-page="opssect"><a href="#">Operations Section Chief</a></li>
+              <li class="linked" data-page="plansect"><a href="#">Planning Section Chief</a></li>
+              <li class="linked" data-page="logssect"><a href="#">Logistics Section Chief</a></li>
+              <li class="linked" data-page="finssect"><a href="#">Finance and Administration Section Chief</a></li>
+              <li class="linked" data-page="intelsect"><a href="#">Intelligence and Investigation</a></li>
+            </ul>
+      	</li>
+      	<li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Resources<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="linked" data-page="macs"><a href="#">Multi-Agency Coordination System</a></li>
+              <li class="linked" data-page="orgguide"><a href="#">Organizational Guide</a></li>
+              <li class="linked" data-page="icsforms"><a href="#">ICS Forms</a></li>
+              <li class="linked" data-page="mapsymbol"><a href="#">Map Symbology</a></li>
+              <li class="linked" data-page="glossary"><a href="#">Glossary</a></li>
+              <li class="linked" data-page="acronym"><a href="#">Acronyms</a></li>
+            </ul>
+            
+      	</li>
+        <li><a href="#modal-clear" class="modal-toggle" data-toggle="modal" data-href="http://localhost.testing/modal-processing.php" data-modal-type="confirm" data-modal-title="Delete Property" data-modal-text="Are you sure you want to delete {$property.address_string}?" data-modal-confirm-url="{$base_url}residential-lettings/properties/do-delete/property/{$property.id}"><i class="icon-trash"></i>Clear Data</a></li>
+        <li><a href="#modal-exit" class="modal-toggle" data-toggle="modal" data-href="http://localhost.testing/modal-processing.php" data-modal-type="confirm" data-modal-title="Delete Property" data-modal-text="Are you sure you want to delete {$property.address_string}?" data-modal-confirm-url="{$base_url}residential-lettings/properties/do-delete/property/{$property.id}"><i class="icon-trash"></i>Exit</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="main-container">
+<div class="panel-group" id="accordion">
+<div class="panel panel-default">
+<a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><div class="panel-heading panel-overview">OVERVIEW</div></a>
+<div id="collapse1" class="panel-collapse collapse">
+<p>
+Incident Command System (ICS) is a management system that is designed to enable effective and efficient management of disasters, incidents and planned events. It is a standard, on-scene, all-hazard management system that allows its users to adopt an integrated organizational structure to match the complexities and demands of single or multiple incidents without being hindered by agency or jurisdictional boundaries.
+</p>
+</div>
+</div>
+<div class="panel panel-default">
+<a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><div class="panel-heading panel-overview">Management Characteristics</div></a>
+<div id="collapse2" class="panel-collapse collapse">
+<p>
+ICS is based on the following proven management characteristics, each of which contributes to the strength, efficiency and flexibility of the system:
+<ul>
+    <li>Management by Objectives</li>
+    <li>Common Terminology</li>
+    <li>Modular Organization</li>
+    <li>Manageable Span of Control</li>
+    <li>Chain of Command</li>
+    <li>Unity of Command</li>
+    <li>Incident Action Planning</li>
+    <li>Incident Facilities and Locations</li>
+    <li>Comprehensive Resource Management</li>
+    <li>Integrated Communications</li>
+    <li>Establishment and Transfer of Command</li>
+    <li>Unified Command</li>
+    <li>Accountability</li>
+    <li>Dispatch and Deployment</li>
+</ul>
+</p>
+</div>
+</div>
+<div class="panel panel-default">
+<a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><div class="panel-heading panel-overview">ICS Organization and Operations</div></a>
+<div id="collapse3" class="panel-collapse collapse">
+<p>
+ICS organizations comprise five major functional areas: Command, Operations, Planning, Logistics, and Finance / Administration. Together, these are referred to as Command and General Staff. Intelligence/Investigation is a sixth functional area that is activated on a case-by-case basis and can be organized in a number of ways.
+</p>
+
+
+<div class="panel-heading panel-overview">Command</div>
+
+<p>
+The command position can be a single Incident Commander (IC) or Unified Command (UC). The Command Staff consists of the Public Information Officer (PIO), Safety Officer (SOFR), and Liaison Officer (LOFR).
+</p>
+<div class="panel-heading panel-overview">General Staff</div>
+<p>
+The General Staff is organized by function and includes the Operations Section Chief, Planning Section Chief, Logistics Section Chief, and Finance / Administration Section Chief. Additional positions can be added in each of these functions to achieve incident objective and maintain an effective span of control.
+</p>
+<p>
+Operations is responsible for all operations directly applicable to the primary mission of the response.
+Planning is responsible for collecting, evaluating, and disseminating the tactical information related to the incident, and for preparing and documenting Incident Action Plans (IAPs).
+</p>
+<p>
+Logistics is responsible for providing facilities, services, and materials for the incident response.
+</p>
+<p>
+Finance / Administration is responsible for all financial, administrative, and cost analysis aspects of the incident.
+</p>
+</div>
+</div>
+
+<div class="panel panel-default">
+<a data-toggle="collapse" data-parent="#accordion" href="#collapse6"><div class="panel-heading panel-overview">ICS Position Titles</div></a>
+<div id="collapse6" class="panel-collapse collapse">
+<p>
+ Titles for all ICS supervisory levels and positions are shown in the table below.
+</p>
+<div class="table-responsive text-center">
+<table border="1">
+  <tr>
+    <th scope="col">Organizational Element</th>
+    <th scope="col">Title</th>
+    <th scope="col">Support Position</th>
+  </tr>
+  <tr>
+    <td>Incident Command</td>
+    <td>Incident Commander</td>
+    <td>Deputy</td>
+  </tr>
+  <tr>
+    <td>Command Staff</td>
+    <td>Officer</td>
+    <td>Assistant</td>
+  </tr>
+  <tr>
+    <td>Section</td>
+    <td>Section Chief</td>
+    <td>Deputy</td>
+  </tr>
+  <tr>
+    <td>Branch</td>
+    <td>Director</td>
+    <td>Deputy</td>
+  </tr>
+  <tr>
+    <td>Division / Group</td>
+    <td>Supervisor</td>
+    <td>N / A</td>
+  </tr>
+  <tr>
+    <td>Unit *</td>
+    <td>Leader</td>
+    <td>Manager</td>
+  </tr>
+  <tr>
+    <td>Strike Team
+/ Task Force **</td>
+    <td>Leader</td>
+    <td>Single Resource Boss</td>
+  </tr>
+  <tr>
+    <td>Technical Specialist</td>
+    <td>Specialist</td>
+    <td>N / A</td>
+  </tr>
+</table>
+</div>
+  <p>*The hierarchical term “Supervisor” is used only in the Operations Section   
+  <br>**Unit Leader designations apply to the subunits of the Operations, Planning, Logistics, and Finance / Administration Sections.</p>
+</div>
+</div>
+<div class="panel panel-default">
+	<a data-toggle="collapse" data-parent="#accordion" href="#collapse7"><div class="panel-heading panel-overview">Incident Management Teams</div></a>
+  	<div id="collapse7" class="panel-collapse collapse">
+  		<p>An Incident Management Team (IMT) is an incident command organization comprised of Command and General Staff members and other appropriate personnel that can be activated or deployed as needed. The IMT is formed to manage an incident or a planned event.    </p>
+  		<p>IMTs should have formal training, certification, qualification, notification, deployment, and should have developed its operational procedures.    </p>
+  		<p>The level of training and experience of the IMT members, coupled with the identified response requirements and responsibilities of the IMT are factors in determining the “type” or level of IMT.</p>
+  		<div class="panel panel-default" id="note">
+			<div class="panel-heading panel-note">NOTE</div>
+			<div class="panel-body">
+		  		<p>The organizational charts throughout this Field Operations Guide (FOG) are meant only to be representative of how to organize an incident using ICS. Each incident is different and local practices may vary, and thus each implementation of ICS is likely to vary as well. 
+			  	</p>
+  			</div>
+  		</div>
+  </div>
+</div>
+  <div class="panel panel-default">
+<a data-toggle="collapse" data-parent="#accordion" href="#collapse8"><div class="panel-heading panel-overview">ICS in the Philippines</div></a>
+<div id="collapse8" class="panel-collapse collapse">
+  <p>
+  The Philippine Incident Command System (ICS) Field Operations Guide (FOG) provides a comprehensive guidance in determining the action to be performed and approaches that are applicable at all levels (National to Barangay levels, civil society organizations (CSOs) and the private sector) across functional disciplines that improve the effectiveness of emergency management/response personnel across the full spectrum of potential incidents and hazard scenarios. This FOG is intended for the members of the IMT, the disaster responders and the Responsible Official.
+For the purpose of this FOG, it is crucial and critical to include the following but not limited to:
+  <ul>
+    <li>Typhoons
+    </li>
+    <li>Floods
+    </li>
+    <li>Earthquakes
+    </li>
+    <li>Tornadoes
+    </li>
+    <li>Tsunamis
+    </li>
+    <li>Storm Surges
+    </li>
+    <li>Volcanic Eruptions
+    </li>
+    <li>Terrorism
+    </li>
+    <li>Armed Conflicts
+    </li>
+    <li>Hazardous Materials </li>
+    <li>Events
+    </li>
+    <li>Chemical, Biological, Radiological, and  Nuclear  Events
+    </li>
+    <li>Aircraft Accidents
+    </li>
+    <li>Forest and Urban Fires
+    </li>
+    <li>Maritime Accidents
+    </li>
+    <li>Landslides
+    </li>
+    <li>Epidemic/Pandemic
+    </li>
+    <li>Bombing
+    </li>
+    <li>Hostage Crises
+    </li>
+    <li>Pest Infestations</li>
+    <li> Planned Events</li>
+  </ul>
+  <p>Increasingly, frequent, small, medium, and large scale disasters in the Philippines have seen an unprecedented scale of response by the government, CSOs, and other stakeholders. The country, primarily due to its geographic location, is highly prone to natural hazards as well as human-induced disasters. Hence, responders are required to operate in a unique circumstance following the ICS guidelines.</p>
+  <p>Incidents typically begin and end locally. They are managed on a daily basis at the lowest possible geographical, organizational, and jurisdictional level. However, there are instances in which successful incident management operations depend on the involvement of multiple jurisdictions, levels of government, functional agencies, and/or emergency responder disciplines. These instances require effective and efficient coordination across this broad spectrum of organizations and activities.    </p>
+  <p> ICS uses systematic approaches to integrate the best existing processes and methods into a unified national framework for incident management. This framework forms the basis for interoperability and compatibility that will, in turn, enable diverse set of public and private organizations to conduct well-integrated and effective emergency management and incident response operations. It does this through a core set of concepts, principles, procedures, organizational processes, terminology, and standards requirements applicable to a broad community of DRRM actors. </p>
+</div>
+</div>
+<div class="panel panel-default">
+<a data-toggle="collapse" data-parent="#accordion" href="#collapse9"><div class="panel-heading panel-overview">Legal Bases of ICS in the Philippines</div></a>
+<div id="collapse9" class="panel-collapse collapse">
+<p>Republic Act 10121</p>
+<ul>
+  <li>“An Act Strengthening the Philippine Disaster Risk Reduction and Management System, Providing for the National Disaster Risk Reduction and Management Framework and Institutionalizing the National Disaster Risk Reduction and Management Plan, Appropriating Funds Therefore and For Other Purposes”</li>
+  <li>Section 9 (g): Office of Civil Defense (OCD) shall “Formulate standard operating procedures for the deployment of rapid assessment teams, information sharing among different government agencies, and coordination before and after disasters at all levels”</li>
+  <li>Rule 7 (h), IRR: OCD shall “Establish an incident command system (ICS) as part of the country’s existing on-scene disaster response system, to ensure effective consequence management of disasters or emergencies”</li>
+</ul>
+<p>NDRRMC Memorandum Circular No. 4</p>
+<ul>
+  <li>Signed by Chairperson, National Disaster Risk Reduction and Management Council (NDRRMC) / Secretary, Department of National Defense (DND) on March 28, 2012</li>
+  <li>Authorizes the use of ICS as an On-Scene Disaster Response and Management Mechanism under the Philippine DRRM System</li>
+</ul>
+<p>National Disaster Risk Reduction Management Plan</p>
+<ul>
+  <li>Thematic Area 3: Disaster Response
+    <ul>
+      <li>Outcome 12: “Well-established ICS in disaster operation.”</li>
+      <li>Indicator 1: “Activated functional Incident Command System (ICS) by the first responder on site”</li>
+    </ul>
+  </li>
+</ul>
+<p>Executive Order No. 82</p>
+<ul>
+  <li>Operationalizing the practical guide for National Crisis Managers and National Crisis management core manual</li>
+  <li>Signed by President Benigno Aquino III on September 4, 2012  </li>
+  <li>Section 4D: “As soon as an incident is declared as approaching crisis level, the Responding Crisis Manager activates the Incident Command System (ICS) and calls on the designated Incident Commander (IC)...” </li>
+</ul>
+<div class="panel panel-default" id="note">
+<div class="panel-heading panel-note">NOTE</div>
+<div class="panel-body">
+  <p>All the checklists in this FOG are not intended to be comprehensive and complete checklist for all situations, rather a reminder of the major tasks and activities that should be accomplished.</p>
+ </div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer"></div>
+</body>
+</html>

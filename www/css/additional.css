@@ -1,0 +1,402 @@
+/*!
+ * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
+ * Copyright 2011-2017 The Bootstrap Authors
+ * Copyright 2011-2017 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+.panel-heading .accordion-toggle {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-right: 10px;
+  display: block;
+  vertical-align:middle;
+}
+
+.navbar-toggle{
+	padding: 5px;
+	padding-bottom: 0px;
+	vertical-align:middle;
+	text-align:center;
+	margin: 0px;
+	margin-right: 15px;
+}
+
+.pull-left{
+	vertical-align:top;
+	text-align:center;
+	margin-left: 15px;
+}
+
+.navbar-toggle.accordion-toggle:after {
+	vertical-align:middle;
+	display:inline;
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+	content:"\e159";
+	font-size:30px;
+    /*content: "\e113";     adjust as needed, taken from bootstrap.css */
+    color: black;
+	padding-top: 0px;
+     padding-bottom: 0px;
+
+}
+.navbar-toggle.accordion-toggle.collapsed:after  {
+	vertical-align:middle;
+    /* symbol for "collapsed" panels */
+    content: "\e158 ";    /* adjust as needed, taken from bootstrap.css */
+
+}
+
+.panel-heading.accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+	content:"\e159";
+    /*content: "\e113";     adjust as needed, taken from bootstrap.css */
+	float: right;
+    position: relative;
+    bottom: 5px;
+	right: -14px;
+    font-size: 20pt;
+    color: white;
+
+}
+.panel-heading.accordion-toggle.collapsed:after  {
+    /* symbol for "collapsed" panels */
+    content: "\e158 ";    /* adjust as needed, taken from bootstrap.css */
+
+}
+
+a:hover, a:active {
+    color:blue;
+	text-decoration:none;
+}
+
+a:link, a:visited {
+    color:blue;
+	text-decoration:none;
+}
+
+body {
+  margin: 0;
+  padding-top: 65px;
+  padding-left: 20px;
+  padding-right: 20px; 
+}
+
+.ui#content{
+  // padding should be the same as header height
+  padding-top: 55px;
+}
+/*# sourceMappingURL=additional.css.map */
+
+.panel-collapse, panel-body {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.panel > .panel-planningp, .panel-planningp {
+    background-image: none;
+    background-color: blue;
+    color: yellow;
+	font-weight:bold;
+}
+
+.panel > .panel-ops, .panel-ops {
+    background-image: none;
+    background-color: orange;
+    color: black;
+	font-weight:bold;
+}
+
+.panel > .panel-plans, .panel-plans {
+    background-image: none;
+    background-color: blue;
+    color: white;
+	font-weight:bold;
+}
+
+a:hover#update-link,
+a:visited#update-link,
+a:link#update-link,
+a:active#update-link{
+	color:#44413C; !important;
+}
+
+.panel > .panel-logs, .panel-logs {
+    background-image: none;
+    background-color:#F4FB00;
+    color: black;
+	font-weight:bold;
+}
+
+.panel > .panel-subdh, .panel-subdh {
+    background-image: none;
+    background-color: #9FCF30;
+    color: black;
+	font-weight:bold;
+}
+
+.panel > .panel-subd, .panel-subd {
+    background-image: none;
+    background-color: #B5FF09;
+    color: black;
+	font-weight:bold;
+}
+
+.panel > .panel-svbdh, .panel-svbdh {
+    background-image: none;
+    background-color: #EFC707;
+    color: black;
+	font-weight:bold;
+}
+
+.panel > .panel-svbd, .panel-svbd {
+    background-image: none;
+    background-color: #FFDF02;
+    color: black;
+	font-weight:bold;
+}
+
+.panel > .panel-intel, .panel-intel {
+    background-image: none;
+    background-color: red;
+    color: white;
+	font-weight:bold;
+}
+
+.panel > .panel-typing, .panel-typing {
+    background-image: none;
+    background-color: pink;
+    color: black;
+	font-weight:bold;
+}
+
+.panel > .panel-protect, .panel-protect {
+    background-image: none;
+    background-color: brown;
+    color: white;
+	font-weight:bold;
+}
+
+.panel > .panel-appendix, .panel-appendix {
+    background-image: none;
+    background-color: green;
+    color: white;
+	font-weight:bold;
+}
+
+.panel > .panel-transfer, .panel-transfer {
+    background-image: none;
+    background-color: gold;
+    color: black;
+	font-weight:bold;
+}
+
+.panel > .panel-roresp, .panel-roresp {
+    background-image: none;
+    background-color: purple;
+    color: white;
+	font-weight:bold;
+}
+
+.panel > .panel-management, .panel-management {
+    background-image: none;
+    background-color: maroon;
+    color: white;
+	font-weight:bold;
+}
+
+.panel > .panel-finance, .panel-finance {
+    background-image: none;
+    background-color: black;
+    color: white;
+	font-weight:bold;
+}
+
+.panel > .panel-commonresp, .panel-commonresp {
+    background-image: none;
+    background-color: green;
+    color: white;
+	font-weight:bold;
+}
+
+.panel > .panel-overview, .panel-overview {
+    background-image: none;
+    background-color: red;
+    color: white;
+	font-weight:bold;
+}
+
+.panel > .panel-command, .panel-command {
+    background-image: none;
+    background-color: orange;
+    color: white;
+	font-weight:bold;
+}
+
+.panel > .panel-forms1, .panel-forms1 {
+    background-image: none;
+    background-color: orange;
+    color: white;
+	font-weight:bold;
+}
+
+.panel > .panel-note {
+    background-image: none;
+    background-color: yellow;
+	text-align:center;
+    color: red;
+	font-weight:bold;
+}
+
+
+body {
+    background: url('../img/bg4.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+				background-position: center center;
+			background-repeat:  no-repeat;
+			background-attachment: fixed;
+
+			background-color: #999;
+}
+
+.table {
+    margin: 0 auto;
+    width: 80%;
+	float: none !important;
+}
+
+#frontpage {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+th {
+	text-align:center;
+}
+*
+{
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+input
+{
+-webkit-user-select: auto !important;
+-khtml-user-select: auto !important;
+-moz-user-select: auto !important;
+-ms-user-select: auto !important;
+user-select: auto !important;
+}
+
+.bottom {    
+    position: absolute;
+    bottom: 0;
+	background-color:transparent !important;
+}
+
+.navbar-fixed-bottom {
+    height:1px; /* Whatever you want. */
+	background-color:transparent !important;
+}
+
+.navbar-nav > li.bottom-bar > a {
+	padding-top:0px !important; 
+	padding-bottom:1px !important;    
+	line-height: 0px; !important; 
+	font-size:7px; !important;
+	background-color:transparent !important;
+}
+.navbar-inverse {
+	background-color:transparent !important;}
+
+.navbar-bottom {min-height:18px !important;
+background-color:transparent !important;}
+
+#modal-clear, #modal-exit{
+	top:30%; !important;
+	left:20%; !important;
+	right:20%; !important;
+	outline: none; !important;
+}
+
+#modal-update{
+	top:10%; !important;
+	left:10%; !important;
+	right:10%; !important;
+	outline: none; !important;
+}
+
+#modal-splashscreen {
+border: 0;
+
+	outline: none; !important;
+}
+
+.modal-header{
+	text-align:center;
+	color:yellow;
+	background-color:#F00;
+	padding-top:5px; !important;
+	padding-bottom:5px; !important;
+}
+
+.modal-footer{
+	padding-top:5px; !important;
+	padding-bottom:5px; !important;
+}
+
+.btn{
+	border:thick;
+}
+
+.modal-fullscreen {
+	background-image:url(../img/modal-bg.png);
+background-size: 100% 100%;
+    background-repeat: no-repeat;
+	
+}
+
+.modal-fullscreen .modal-content {
+	  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
+.img-responsive {
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.otherform {
+	background-color:#FFD897;
+}
+
+.phform {
+	background-color:#6F6;
+}
+
+.dropdown-menu > li:nth-child(odd) {
+  background:#FFFFDF;
+  color:#000
+}
+.dropdown-menu > li:nth-child(even) {
+  background:#EEF;
+  color:#000
+}
