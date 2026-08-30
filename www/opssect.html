@@ -1,21 +1,5 @@
-  <script>
-  $( document ).ready(function(){
-	var checkboxValues = JSON.parse(localStorage.getItem('OSCcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
 
-	$checkboxes.on("change", function(){
-  		$checkboxes.each(function(){
-    		checkboxValues[this.id] = this.checked;
-  		});
-  
-  		localStorage.setItem("OSCcheckboxValues", JSON.stringify(checkboxValues));
-	});
-
-	$.each(checkboxValues, function(key, value) {
-  		$("#" + key).prop('checked', value);
-	});
-});
-  </script>
-<div id="checkbox-container">
+<div id="checkbox-container" data-storage-key="OSCcheckboxValues">
 <div class="panel-group" id="accordion">
 <div class="panel panel-default">
 <div class="panel-heading panel-ops accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">OPERATIONS SECTION</div>

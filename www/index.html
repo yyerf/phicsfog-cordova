@@ -1,329 +1,58 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
+    PH ICS FOG - offline Android guide (com.knpn.phicsfog).
+    Version 8.2.2 - all logic is centralized in js/app.js; no inline scripts.
 -->
-<html>
-
+<html lang="en">
 <head>
-  <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-       
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+  <meta charset="utf-8">
   <meta name="format-detection" content="telephone=no">
   <meta name="msapplication-tap-highlight" content="no">
-  <meta name="viewport"
-    content="user-scalable=no, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width">
-  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval'; script-src * 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval'; script-src-elem * 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval'; script-src-attr * 'self' data: 'unsafe-inline' 'unsafe-hashes' 'unsafe-eval'; style-src * 'self' data: 'unsafe-inline' 'unsafe-hashes'; style-src-elem * 'self' data: 'unsafe-inline' 'unsafe-hashes'; style-src-attr * 'self' data: 'unsafe-inline' 'unsafe-hashes'; img-src *; font-src *; connect-src *; media-src *; object-src *; prefetch-src *; base-uri *">
-  <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+  <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=5, minimum-scale=1, width=device-width">
+  <meta name="theme-color" content="#f8f8f8">
+  <meta name="color-scheme" content="light">
+
+  <!--
+    Tightened Content Security Policy: local scripts/assets and same-origin
+    fragment loads only. No remote JavaScript, no CDN, no data exfiltration.
+    External links (Google Drive, Play Store, privacy policy) are handed to
+    Android as user-initiated intents and do not load in this WebView.
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self' data: gap: https://ssl.gstatic.com;
+      script-src 'self';
+      style-src 'self' 'unsafe-inline';
+      img-src 'self' data: content:;
+      media-src 'self' data:;
+      connect-src 'self';
+      font-src 'self' data:;
+      frame-src 'self';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'none'">
+
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/additional.css">
+  <link rel="icon" type="image/png" href="img/96x96.png">
   <title>Philippines ICS Field Operations Guide</title>
 </head>
-
 <body>
 
-  <script type="text/javascript" src="cordova.js"></script>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/w3.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-  <script type="text/javascript" src="./js/socket.io/socket.io.js"></script>
-  <script type="module">
-    import { io } from "https://cdn.socket.io/4.5.3/socket.io.esm.min.js";
-    var socket = io("fs-support.glitch.me", {
-      transportOptions: {
-        polling: {
-          extraHeaders: {
-            "my-custom-headers": "abcd"
-          }
-        }
-      }
-    });
-  </script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyC0NH6O6nkVJhe-ZxIWIzM5W061NSYsrEo",
-      authDomain: "ph-ics-field-operations-guide.firebaseapp.com",
-      databaseURL: "https://ph-ics-field-operations-guide.firebaseio.com",
-      projectId: "ph-ics-field-operations-guide",
-      storageBucket: "ph-ics-field-operations-guide.appspot.com",
-      messagingSenderId: "487512678274"
-    };
-    firebase.initializeApp(config);
-  </script>
-
-  <script>
-    var backpage = [];
-    var currentdatapage = "home";
-    var socket;
-    $(document).ready(function () {
-      window.plugins.insomnia.keepAwake()
-      socket = io("fs-support.glitch.me", {
-      transportOptions: {
-        polling: {
-          extraHeaders: {
-            "my-custom-headers": "abcd"
-          }
-        }
-      }
-    });
-    console.log(socket);
-
-      var backs = 0;
-      backpage[0] = "";
-
-      today = new Date();
-      expiry = new Date(2026, 11, 31);
-
-      if ((today.getTime()) >= expiry.getTime()) {
-        alert('Application has expired. Please download update via Google Play.');
-        window.location.replace('\expired.html');
-        window.open('', '_parent', '');
-        window.close();
-        navigator.app.exitApp();
-      }
-      $(".main-container").load("home.html");
-
-
-      $(".backbutton").on("click", function () {
-        $(".acc-container").load("accordion.html");
-        //alert(backpage[backs]);
-        //backpage=currentdatapage;
-        currentdatapage = $(this).attr("data-page");
-        //alert(currentpage);
-        //alert(backpage);
-        if (backs > 1) {
-          backs--;
-          $(".main-container").load(backpage[backs] + ".html");
-          $(this).collapse('hide');
-        }
-        //admob.createBannerView();
-      });
-
-
-      $("ul.navbar-nav li.linked").each(function () {
-        $(this).on("click", function () {
-          $(".acc-container").load("accordion.html");
-          backs++;
-          backpage[backs] = $(this).attr("data-page");
-          //backpage[backs]=currentdatapage;
-
-          //alert(currentpage);
-          $(".main-container").load($(this).attr("data-page") + ".html");
-          $(this).collapse('hide');
-
-        });
-      });
-
-
-      //alert(backpage + ' ' + currentpage);
-      $(document).on('click', '.navbar-collapse.in', function (e) {
-        if ($(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle') {
-          $(this).collapse('hide');
-        }
-      });
-      //$(document).on('click', '#update-link', function() {  
-      //	 navigator.app.loadUrl('https://play.google.com/store/apps/details?id=com.knpn.phicsfog');
-      //});
-
-
-
-
-    });
-  </script>
-
-  <!------------------------>
-  <script>
-    /*function startGPS(){
-      alert('starting');
-      navigator.geolocation.getCurrentPosition(onSuccess, onError);
-      var onSuccess = function(position) {
-        alert(position.coords.latitude + " " +position.coords.longitude);
-        $('#lat').text(position.coords.latitude);
-        $('#long').text(position.coords.longitude);
-      };
-      setTimeout(function() {
-        startGPS();
-      }, 5000);           
-    };
-    */
-
-
-
-
-
-  </script>
-
-  <script type="text/javascript">
-    $(window).on('load', function () {
-      
-      $('#splashscreen').modal('show');
-      setTimeout(function () {
-        $('#splashscreen').modal('hide');
-      }, 3000);
-      $('#splashscreen').modal('show');
-      setTimeout(function () {
-        if (localStorage.getItem("up819") == null) {
-          $('#modal-update').modal('show');
-          localStorage.setItem("up819", "yes")
-        }
-      }, 3000);
-      //setTimeout(function(){
-      //$(".main-container").load("about.html");
-      //}, 5000);
-
-    });
-  </script>
-
-  <div class="app">
-    <h1></h1>
-    <div id="deviceready" class="blink">
-      <p class="event listening"></p>
-      <p class="event received"></p>
-    </div>
-  </div>
-
-
-  <div class="modal modal-fullscreen fade " id="splashscreen">
-    <img src="img/splash3.png" class="img-responsive centered">
-  </div>
-  <div id="modal-update" class="modal">
-    <div class="modal-update">
-      <div class="modal-content">
-        <div class="modal-header">
-          <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
-          <h4>What's New?</h4>
-        </div>
-        <div class="modal-body">
-          <p>Updates to version 8.1.9:
-          <ul>
-            <li>Mobile app runs on single instance.</li>
-            <li>Changed splash screen.</li>
-            <li>Added Downloads section for PH ICS Forms.</li>
-
-          </ul>
-          </p>
-          <p>From the developer:</p>
-          <p>Like our facebook page: fb.me/phicsfog<br>
-            We appreciate your comments and suggestions at our fb page.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn confirm" id="btnOK">OK</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="modal-clear" class="modal">
-    <div class="modal-clear">
-      <div class="modal-content">
-        <div class="modal-header">
-          <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
-          <h4>Warning!</h4>
-        </div>
-        <div class="modal-body">
-          <p>This action will clear ALL checklists. Do you wish to proceed?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn confirm" id="btnYes">Yes</button>
-          <button type="button" data-dismiss="modal" class="btn secondary" id="btnNo">No</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="modal-exit" class="modal">
-    <div class="modal-exit">
-      <div class="modal-content">
-        <div class="modal-header">
-          <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
-          <h4>Warning!</h4>
-        </div>
-        <div class="modal-body">
-          <p>You are about to close the app. Changes to checklists have been saved.</p>
-          <p> Do you wish to proceed?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn confirm" id="btnYesExit">Yes</button>
-          <button type="button" data-dismiss="modal" class="btn secondary" id="btnNo">No</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    $(function () {
-      $('#modal-clear').on('show', function () {
-        var link = $(this).data('link'), confirmBtn = $(this).find('.confirm');
-      })
-    });
-
-    $(function () {
-      $('#btnYes').click(function () {
-        localStorage.clear();
-        $('#modal-clear').modal('hide');
-        $(".main-container").load(currentdatapage + ".html");
-        $(".acc-container").load("accordion.html");
-        //window.location.reload();
-        var idToToggle = window.location.hash;
-        if (idToToggle != '') {
-          $('#collapse1').collapse('hide');
-          $(idToToggle).collapse('show');
-        };
-      });
-    });
-    $(function () {
-      $('#modal-exit').on('show', function () {
-        var link = $(this).data('link'), confirmBtn = $(this).find('.confirm');
-      })
-    });
-    $(function () {
-      $('#btnOK').click(function () {
-        $('#modal-update').modal('hide');
-      });
-    });
-    $(function () {
-      $('#btnYesExit').click(function () {
-        window.open('', '_parent', '');
-        window.close();
-        navigator.app.exitApp();
-      });
-    });
-  </script>
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top" aria-label="Guide navigation">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle accordion-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <button type="button" class="navbar-toggle accordion-toggle collapsed" data-toggle="collapse" data-target="#myNavbar"
+          aria-controls="myNavbar" aria-expanded="false" aria-label="Open guide menu">
           <span> Menu</span>
         </button>
-        <a class="backbutton" href="#"><button type="button" class="btn btn-default navbar-btn pull-left"> <i
-              class="glyphicon glyphicon-chevron-left"></i></button></a>
-        <a class="navbar-brand" href="#">PH ICS FOG</a>
+        <button type="button" class="backbutton btn btn-default navbar-btn pull-left" aria-label="Go back">
+          <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
+        </button>
+        <span class="navbar-brand">PH ICS FOG</span>
       </div>
-      <div class="collapse navbar-collapse in" id="myNavbar">
+      <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-left">
-          <li class="linked" data-page="about"><a href="#" style="background:#F2F2F2;">About</a></li>
+          <li class="linked" data-page="about"><a href="#">About</a></li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">ICS Principles<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -336,8 +65,7 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="background:#F2F2F2;">Responsibilities<span
-                class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Responsibilities<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li class="linked" data-page="commonresp"><a href="#">Common Responsibilities</a></li>
               <li class="linked" data-page="roresp"><a href="#">Responsible Official</a></li>
@@ -364,43 +92,115 @@
               <li class="linked" data-page="mapsymbol"><a href="#">Map Standards</a></li>
               <li class="linked" data-page="glossary"><a href="#">Glossary</a></li>
               <li class="linked" data-page="acronym"><a href="#">Acronyms</a></li>
-
             </ul>
-
           </li>
-          <li class="linked" data-page="faqs"><a href="#" style="background:#F2F2F2;">FAQs</a></li>
+          <li class="linked" data-page="faqs"><a href="#">FAQs</a></li>
           <li class="linked" data-page="downloads"><a href="#">Downloads</a></li>
-          <li class="linked" data-page="tools"><a href="#" style="background:#F2F2F2;">Tools</a></li>
+          <li class="linked" data-page="tools"><a href="#">Tools</a></li>
           <li class="linked" data-page="imtog"><a href="#">IMT Operating Guidelines</a></li>
-          <li><a href="#modal-clear" style="background:#F2F2F2;" class="modal-toggle" data-toggle="modal"
-              data-href="http://localhost.testing/modal-processing.php" data-modal-type="confirm"
-              data-modal-title="Delete Property"
-              data-modal-text="Are you sure you want to delete {$property.address_string}?"
-              data-modal-confirm-url="{$base_url}residential-lettings/properties/do-delete/property/{$property.id}"><i
-                class="icon-trash"></i>Clear Data</a></li>
-          <script>
-      //  <li><a href="#modal-exit" class="modal-toggle" data-toggle="modal" data-href="http://localhost.testing/modal-processing.php" data-modal-type="confirm" data-modal-title="Delete Property" data-modal-text="Are you sure you want to delete {$property.address_string}?" data-modal-confirm-url="{$base_url}residential-lettings/properties/do-delete/property/{$property.id}"><i class="icon-trash"></i>Exit</a></li>
-          </script>
+          <li><a href="#modal-clear" data-toggle="modal"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Clear Data</a></li>
+          <li><a href="#modal-exit" data-toggle="modal"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Exit</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="acc-container"></div>
+  <main class="main-container" tabindex="-1" aria-busy="true"></main>
 
-  <div class="main-container"></div>
-
-  <nav class="navbar  navbar-fixed-bottom navbar-bottom">
+  <footer class="navbar navbar-fixed-bottom navbar-bottom app-footer">
     <div class="container-fluid">
       <ul class="nav navbar-nav navbar-left">
-        <li class="bottom-bar"><a>Ver.8.1.9 &nbsp;|&nbsp;eccolmenares@gmail.com &nbsp;|&nbsp; +639174339080</a></li>
+        <li class="bottom-bar"><span class="version-label">Ver.8.2.2</span><span aria-hidden="true"> | </span><a class="privacy-link" href="https://yyerf.github.io/phicsfog-cordova/privacy-policy.html" target="_system" rel="noopener noreferrer">Privacy Policy</a></li>
       </ul>
-
     </div>
-  </nav>
+  </footer>
 
-  <!------------------------>
+  <!-- What's New (8.2.2) - acknowledged once per installed app version -->
+  <div id="modal-update" class="modal fade" role="dialog" aria-modal="true" aria-labelledby="update-title" tabindex="-1">
+    <div class="modal-dialog modal-update" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 id="update-title">What's New in 8.2.2</h4>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>Updated for Android 16 (API 36) &mdash; required for Google Play submissions.</li>
+            <li>Faster native splash screen (no more loading delay).</li>
+            <li>Your checklists are preserved and now stored only on your device.</li>
+            <li>Location display now works locally with your explicit permission &mdash; coordinates are never stored or transmitted.</li>
+            <li>Fixed checklists and improved stability / privacy.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn confirm" id="btnUpdateNoticeOK">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Post-expiry update warning - Update or Continue; never locks the guide -->
+  <div id="modal-expiry" class="modal fade" role="dialog" aria-modal="true" aria-labelledby="expiry-title" tabindex="-1">
+    <div class="modal-dialog modal-expiry" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="expiry-title">Time to Update</h4>
+        </div>
+        <div class="modal-body">
+          <p>This installed version is now outdated. For the latest features and compatibility, please update PH ICS FOG from the Google Play Store.</p>
+          <p>You may continue using this offline guide; your data stays on your device.</p>
+        </div>
+        <div class="modal-footer">
+          <a class="btn confirm" id="btnUpdate" href="https://play.google.com/store/apps/details?id=com.knpn.phicsfog" target="_system" rel="noopener noreferrer">Update</a>
+          <button type="button" class="btn secondary" id="btnContinue">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clear Data - removes checklist keys only -->
+  <div id="modal-clear" class="modal fade" role="dialog" aria-modal="true" aria-labelledby="clear-title" tabindex="-1">
+    <div class="modal-dialog modal-clear" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 id="clear-title">Clear checklist data?</h4>
+        </div>
+        <div class="modal-body">
+          <p>This will clear all checklist progress on this device. Do you wish to proceed?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn confirm" id="btnYesClear">Clear checklists</button>
+          <button type="button" data-dismiss="modal" class="btn secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exit confirmation -->
+  <div id="modal-exit" class="modal fade" role="dialog" aria-modal="true" aria-labelledby="exit-title" tabindex="-1">
+    <div class="modal-dialog modal-exit" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" data-dismiss="modal" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 id="exit-title">Exit PH ICS FOG?</h4>
+        </div>
+        <div class="modal-body">
+          <p>Your checklists are saved on this device. Do you wish to close PH ICS FOG?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn confirm" id="btnYesExit">Exit app</button>
+          <button type="button" data-dismiss="modal" class="btn secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="cordova.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/app-config.js"></script>
+  <script src="js/app-core.js"></script>
+  <script src="js/app.js"></script>
 </body>
-
 </html>

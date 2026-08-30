@@ -1,21 +1,5 @@
-  <script>
-  $( document ).ready(function(){
-	var checkboxValues = JSON.parse(localStorage.getItem('CRcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
 
-	$checkboxes.on("change", function(){
-  		$checkboxes.each(function(){
-    		checkboxValues[this.id] = this.checked;
-  		});
-  
-  		localStorage.setItem("CRcheckboxValues", JSON.stringify(checkboxValues));
-	});
-
-	$.each(checkboxValues, function(key, value) {
-  		$("#" + key).prop('checked', value);
-	});
-});
-  </script>
-<div id="checkbox-container">
+<div id="checkbox-container" data-storage-key="CRcheckboxValues">
 
 <div class="panel-group" id="accordion">
 <div class="panel panel-default">
@@ -79,7 +63,7 @@ Every person working under the ICS organization has common responsibilities and 
 </div>
 
 <div id="comresp" class="panel panel-default">
-<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse3" id="comresp" class="panel-heading panel-commonresp accordion-toggle collapsed">Common Responsibilities Checklist</div>
+<div data-toggle="collapse" data-parent="#accordion" data-target="#collapse3" class="panel-heading panel-commonresp accordion-toggle collapsed">Common Responsibilities Checklist</div>
 <div id="collapse3" class="panel-collapse collapse">
 <p>
   <strong>Primary Responsibilities</strong></p>

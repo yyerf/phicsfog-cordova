@@ -1,21 +1,5 @@
-  <script>
-  $( document ).ready(function(){
-	var checkboxValues = JSON.parse(localStorage.getItem('LSCcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
 
-	$checkboxes.on("change", function(){
-  		$checkboxes.each(function(){
-    		checkboxValues[this.id] = this.checked;
-  		});
-  
-  		localStorage.setItem("LSCcheckboxValues", JSON.stringify(checkboxValues));
-	});
-
-	$.each(checkboxValues, function(key, value) {
-  		$("#" + key).prop('checked', value);
-	});
-});
-  </script>
-  <div id="checkbox-container">
+  <div id="checkbox-container" data-storage-key="LSCcheckboxValues">
 <div class="panel-group" id="accordion">
 
 <div class="panel panel-default">
@@ -354,7 +338,7 @@
   </label>
 </div>
   <div class="checkbox">
-  <label><input type="checkbox" value="" id="medlP01">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
+  <label><input type="checkbox" value="" id="medlP04">Review <a class="other-link" data-page="commonresp" href="#collapse4">unit leader responsibilities</a>
   </label>
 </div>
   <div class="checkbox">

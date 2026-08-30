@@ -1,21 +1,5 @@
-  <script>
-  $( document ).ready(function(){
-	var checkboxValues = JSON.parse(localStorage.getItem('FASCcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
 
-	$checkboxes.on("change", function(){
-  		$checkboxes.each(function(){
-    		checkboxValues[this.id] = this.checked;
-  		});
-  
-  		localStorage.setItem("FASCcheckboxValues", JSON.stringify(checkboxValues));
-	});
-
-	$.each(checkboxValues, function(key, value) {
-  		$("#" + key).prop('checked', value);
-	});
-});
-  </script>
-<div id="checkbox-container">
+<div id="checkbox-container" data-storage-key="FASCcheckboxValues">
 <div class="panel-group" id="accordion">
 
 <div class="panel panel-default">

@@ -1,0 +1,11 @@
+{
+  "_comment": "Redacted example. Create build.release.json locally (git-ignored) with your real values. Never commit real credentials.",
+  "keystorePath": "/absolute/path/outside/the/repository/knpn.jks",
+  "storePassword": "<REDACTED>",
+  "alias": "knpn",
+  "password": "<REDACTED>",
+  "keystoreType": "JKS",
+  "expectedCertificateSha256": "<SHA-256 FROM PLAY CONSOLE APP INTEGRITY>",
+  "authoritativeSourceAuditConfirmed": false,
+  "playVersionCode80202Confirmed": false
+}

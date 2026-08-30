@@ -1,33 +1,51 @@
 {
-  "name": "com.knpn.phicsfog",
-  "displayName": "PHICSFOG",
-  "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "index.js",
+  "name": "phicsfog-cordova",
+  "displayName": "PH ICS FOG",
+  "version": "8.2.2",
+  "description": "Condensed PH ICS Field Operations Guide for Mobile - offline Android app (com.knpn.phicsfog).",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "env:check": "node scripts/env-check.js",
+    "test": "node --test",
+    "test:unit": "node --test test/app-core.test.js",
+    "test:static": "node scripts/static-check.js",
+    "prepare:android": "node scripts/cordova.js prepare android",
+    "debug": "node scripts/cordova.js build android --debug",
+    "apk": "node scripts/build.js --apk",
+    "phone:test": "node scripts/phone-qa.js",
+    "aab:unsigned": "node scripts/build.js --aab --unsigned",
+    "release": "node scripts/build.js --aab --signed",
+    "verify": "node scripts/verify-aab.js --require-signed",
+    "ci": "node scripts/ci.js"
   },
   "keywords": [
-    "ecosystem:cordova"
+    "ecosystem:cordova",
+    "phicsfog",
+    "incident-command-system",
+    "ics",
+    "disaster-response"
   ],
-  "author": "Apache Cordova Team",
-  "license": "Apache-2.0",
+  "author": "Eric C. Colmenares / KNPN",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.9.0 <23"
+  },
   "devDependencies": {
-    "cordova-android": "^12.0.1",
-    "cordova-browser": "^6.0.0",
-    "cordova-plugin-device": "^2.1.0",
-    "cordova-plugin-geolocation": "^4.1.0",
-    "cordova-plugin-insomnia": "^4.3.0"
+    "cordova": "13.0.0",
+    "cordova-android": "15.1.0",
+    "cordova-plugin-geolocation": "5.0.0"
+  },
+  "overrides": {
+    "cross-spawn": "7.0.6"
   },
   "cordova": {
     "platforms": [
-      "browser",
       "android"
     ],
     "plugins": {
-      "cordova-plugin-device": {},
-      "cordova-plugin-geolocation": {},
-      "cordova-plugin-insomnia": {}
+      "cordova-plugin-geolocation": {
+        "GPS_REQUIRED": "false"
+      }
     }
   }
 }

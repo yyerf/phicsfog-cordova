@@ -1,21 +1,5 @@
-  <script>
-  $( document ).ready(function(){
-	var checkboxValues = JSON.parse(localStorage.getItem('PAGcheckboxValues')) || {},$checkboxes = $("#checkbox-container :checkbox");
 
-	$checkboxes.on("change", function(){
-  		$checkboxes.each(function(){
-    		checkboxValues[this.id] = this.checked;
-  		});
-  
-  		localStorage.setItem("PAGcheckboxValues", JSON.stringify(checkboxValues));
-	});
-
-	$.each(checkboxValues, function(key, value) {
-  		$("#" + key).prop('checked', value);
-	});
-});
-  </script>
-<div id="checkbox-container">
+<div id="checkbox-container" data-storage-key="PAGcheckboxValues">
 <div class="panel-group" id="accordion">
 <div class="panel panel-default">
 <div data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" class="panel-heading panel-protect accordion-toggle">PROTECTIVE ACTION GUIDELINES</div>

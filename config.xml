@@ -1,30 +1,72 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.knpn.phicsfog" version="8.1.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>phicsfog</name>
+<!--
+    PH ICS FOG - Condensed PH ICS Field Operations Guide for Mobile
+    Application ID: com.knpn.phicsfog  |  Version: 8.2.2 (80202)
+    Min SDK 24 (Android 7)  |  Target/Compile SDK 36 (Android 16)
+    Author: Eric C. Colmenares / KNPN
+-->
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0"
+        id="com.knpn.phicsfog"
+        version="8.2.2"
+        android-versionCode="80202">
+
     <name>PH ICS FOG</name>
-    <description>Condensed PH ICS Field Operations Guide for Mobile</description>
-    <author>Eric C. Colmenares / KNPN</author>
+    <description>Condensed PH ICS Field Operations Guide for Mobile (offline).</description>
+    <author email="eccolmenares@gmail.com" href="https://yyerf.github.io/phicsfog-cordova/privacy-policy.html">Eric C. Colmenares / KNPN</author>
+
     <content src="index.html" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
+    <hook type="after_prepare" src="scripts/patch-geolocation-approximate.js" />
+    <hook type="after_prepare" src="scripts/remove-internet-permission.js" />
+
+    <!-- Offline guide only: no <access> entries are declared, so WebView
+         network requests are not allow-listed. Local fragment requests are
+         covered by the packaged start-page navigation allow-list. -->
+
+    <!-- Only the three user-facing external destinations are allow-listed. -->
+    <allow-intent href="https://drive.google.com/*" />
+    <allow-intent href="https://play.google.com/store/apps/details?id=com.knpn.phicsfog" />
+    <allow-intent href="https://yyerf.github.io/phicsfog-cordova/privacy-policy.html" />
+
     <platform name="android">
-        <preference name="orientation" value="default" />
-        <preference name="android-minSdkVersion" value="33" />
-        <preference name="android-targetSdkVersion" value="33" />
+        <!-- Identity and SDK levels (one consistent set). -->
+        <preference name="android-minSdkVersion" value="24" />
+        <preference name="android-targetSdkVersion" value="36" />
+        <preference name="android-compileSdkVersion" value="36" />
+        <preference name="GradleVersion" value="8.14.2" />
         <preference name="android-installLocation" value="auto" />
-        <preference name="android-signed" value="true" />
-        <preference name="Fullscreen" value="true" />
-        <preference name="AndroidLaunchMode" value="singleInstance" />
-        <icon density="ldpi" height="36" platform="android" src="package-assets/36x36.png" width="36" />
-        <icon density="mdpi" height="48" platform="android" src="package-assets/48x48.png" width="48" />
-        <icon density="hdpi" height="72" platform="android" src="package-assets/72x72.png" width="72" />
-        <icon density="xhdpi" height="96" platform="android" src="package-assets/96x96.png" width="96" />
-        <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/uses-permission" xmlns:android="http://schemas.android.com/apk/res/android">
-            <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-            <uses-permission android:name="android.permission.INTERNET"/>
-            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-            <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
-        </edit-config>
+        <preference name="loglevel" value="ERROR" />
+
+        <!-- Safe single-task activity (avoids the multi-instance pitfalls of -->
+        <!-- singleInstance on modern Android).                              -->
+        <preference name="AndroidLaunchMode" value="singleTask" />
+
+        <!-- Let the app manage screen orientation freely (portrait/landscape). -->
+        <preference name="orientation" value="default" />
+
+        <!-- Cordova 15 applies native status/navigation/IME insets around   -->
+        <!-- the WebView. This remains compatible with Android 16's enforced -->
+        <!-- edge-to-edge window model without placing controls under bars.  -->
+        <preference name="AndroidEdgeToEdge" value="false" />
+        <preference name="BackgroundColor" value="0xFFFFFFFF" />
+        <preference name="AndroidPostSplashScreenTheme" value="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <!-- Native splash screen (Android 12+ SplashScreen API), replacing   -->
+        <!-- the old artificial three-second HTML splash. No artificial delay. -->
+        <preference name="AndroidWindowSplashScreenBackground" value="#FFFFFF" />
+        <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#FFFFFF" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/android/splash/ic_cdv_splashscreen.png" />
+
+        <!-- Foreground geolocation only (coarse + fine added by the          -->
+        <!-- cordova-plugin-geolocation). No background location, no          -->
+        <!-- foreground-service permission.                                   -->
+
+        <!-- Launcher icons: legacy (pre-26) + adaptive + monochrome, all     -->
+        <!-- generated from the official Play listing master (resources/README). -->
+        <icon background="resources/android/mipmap-mdpi/ic_launcher_background.png" density="mdpi" foreground="resources/android/mipmap-mdpi/ic_launcher_foreground.png" monochrome="resources/android/mipmap-mdpi/ic_launcher_monochrome.png" src="resources/android/mipmap-mdpi/ic_launcher.png" />
+        <icon background="resources/android/mipmap-hdpi/ic_launcher_background.png" density="hdpi" foreground="resources/android/mipmap-hdpi/ic_launcher_foreground.png" monochrome="resources/android/mipmap-hdpi/ic_launcher_monochrome.png" src="resources/android/mipmap-hdpi/ic_launcher.png" />
+        <icon background="resources/android/mipmap-xhdpi/ic_launcher_background.png" density="xhdpi" foreground="resources/android/mipmap-xhdpi/ic_launcher_foreground.png" monochrome="resources/android/mipmap-xhdpi/ic_launcher_monochrome.png" src="resources/android/mipmap-xhdpi/ic_launcher.png" />
+        <icon background="resources/android/mipmap-xxhdpi/ic_launcher_background.png" density="xxhdpi" foreground="resources/android/mipmap-xxhdpi/ic_launcher_foreground.png" monochrome="resources/android/mipmap-xxhdpi/ic_launcher_monochrome.png" src="resources/android/mipmap-xxhdpi/ic_launcher.png" />
+        <icon background="resources/android/mipmap-xxxhdpi/ic_launcher_background.png" density="xxxhdpi" foreground="resources/android/mipmap-xxxhdpi/ic_launcher_foreground.png" monochrome="resources/android/mipmap-xxxhdpi/ic_launcher_monochrome.png" src="resources/android/mipmap-xxxhdpi/ic_launcher.png" />
     </platform>
 </widget>

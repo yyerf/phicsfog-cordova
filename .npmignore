@@ -1,2 +1,14 @@
-# OS X
-.DS_Store
+# Everything not needed when this package is installed by tooling.
+platforms/
+plugins/
+node_modules/
+
+# Signing / release secrets (defense in depth; .gitignore is the primary gate).
+*.jks
+*.keystore
+build.release.json
+signing/
+
+# Generated build output.
+*.apk
+*.aab

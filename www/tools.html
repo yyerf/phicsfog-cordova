@@ -1,163 +1,32 @@
-<script>
-	var server_osrts;
-	var onSuccess = function (position) {
-		$('#lat').html("Latitude:" + position.coords.latitude);
-		$('#long').html("Longitude:" + position.coords.longitude);
-		$('#accu').html("Accuracy:" + position.coords.accuracy + " meters");
-		$('#gpserror').html('Connected to GPS.');
-		var coordsData={
-			lat:position.coords.latitude,
-            long:position.coords.longitude,
-            alt:position.coords.altitude,
-            acc:position.coords.accuracy,
-            altacc:position.coords.altitudeAccuracy,
-            head:position.coords.heading,
-            speed:position.coords.speed,
-            timestamp:position.timestamp,
-    	};
-		socket.emit("report",JSON.stringify(coordsData));
-	};
-
-
-
-	// onError Callback receives a PositionError object
-	//
-	function onError(error) {
-		$('#gpserror').html('Error: ' + error.message + '\n');
-
-	};
-
-
-	function startGPS() {
-		navigator.geolocation.getCurrentPosition(onSuccess, onError);
-		//---------------------------
-
-		//---------------------------	
-		if (gpsState == true)
-			setTimeout(function () { startGPS(); }, 10000);
-	}
-
-	var gpsState = false;
-
-
-</script>
-
-<script>
-
-	$(document).ready(function () {
-		//alert(device.uuid);
-
-		if (device.uuid) {
-			dev_uuid = device.uuid;
-			dev_serial = device.serial;
-		}
-		else {
-			dev_uuid = 1;
-			dev_serial = 1;
-			//dev_uuid=(Math.random()*32766).toFixed(0);
-			//dev_serial=(Math.random()*32766).toFixed(0);
-		}
-		$("#dev_id").html(dev_serial + ": <br>" + dev_uuid);
-	});
-</script>
-
-<script>
-
-
-	$('.register').on('click',function () {
-		data={
-			uuid:device.uuid+device.serial,
-			name:$('input[name="name"]').val(),
-			type:$('input[name="org2"]').val(),
-			identifier:$('input[name="org2ident"]').val(),
-		}
-		console.log(JSON.stringify(data));
-		socket.emit('register');
-		socket.emit('register',JSON.stringify(data));
-		return false;
-	});
-</script>
-
 <div class="panel-group" id="accordion">
-	<div class="panel panel-default">
-		<div class="panel-heading panel-appendix">Tools</div>
-	</div>
+  <div class="panel panel-default">
+    <div class="panel-heading panel-appendix">Tools</div>
+  </div>
 
-	<div class="panel panel-default">
-		<div class="panel-heading panel-appendix accordion-toggle collapsed" data-toggle="collapse"
-			data-parent="#accordion" data-target="#collapse3">On Scene Real Time Tracking System</div>
-		<div id="collapse3" class="panel-collapse collapse">
+  <div class="panel panel-default">
+    <div class="panel-heading panel-appendix accordion-toggle collapsed" data-toggle="collapse"
+      data-parent="#accordion" data-target="#collapse-geo">Geographic Location</div>
+    <div id="collapse-geo" class="panel-collapse collapse">
 
-			<div id='registration'>
+      <p id="gps-explain" class="hidden">
+        Start tracking to show your current latitude, longitude and accuracy below.
+        Your coordinates are read by this app and shown <strong>only on this device</strong> &mdash;
+        they are <strong>never stored and never transmitted anywhere</strong>.
+      </p>
 
-				<table width="100%">
-						<col width="50%">
-						<col width="50%">
-						<!--<tr>
-    <td valign="top">Server</td>
-    <td valign="top">phicsfog.000webhostapp.com</td><input type="text" name="server" value="" disabled="disabled"/></td>
-  </tr>
-						<tr>
-							<td width="50%" valign="top">Device ID</td>
-							<td width="50%" valign="top">
-								<div id="dev_id"> </div>
-							</td>
-						</tr>-->
-						<tr>
-							<td valign="top">Name</td>
-							<td valign="top"><input type="text" name="name"></td>
-						</tr>
-						<!--<tr>
-							<td valign="top"><input type="radio" name="org1" value="0"> Division<br />
-								<input type="radio" name="org1" value="1"> Group
-							</td>
-							<td valign="top">Identifier:<br /><input type="text" name="org1ident"></td>
-						</tr>-->
-						<tr>
-							<td valign="top"><input type="radio" name="org2" value="0"> Single Resource <br>
-								<input type="radio" name="org2" value="1"> Strike Team <br>
-								<input type="radio" name="org2" value="2"> Task Force
-							</td>
-							<td valign="top">Identifier:<br /><input type="text" name="org2ident"></td>
-						</tr>
+      <p>
+        <button type="button" class="btn btn-primary" id="gps-start" aria-describedby="gps-explain">Start location</button>
+        <button type="button" class="btn btn-default hidden" id="gps-stop">Stop location</button>
+      </p>
 
-					</table>
-					<input type='reset' value='Clear' name='reset'>
-					<button class="register">Submit</button>
-			</div>
-			<div id="register_error"></div>
-			<div id="osrts_options">
+      <div id="gps-status" role="status" aria-live="polite">
+        Make sure location services are enabled on your device, then press Start.
+      </div>
 
-
-			</div>
-
-		</div>
-	</div>
-
-	<div class="panel panel-default">
-		<div class="panel-heading panel-appendix accordion-toggle collapsed" data-toggle="collapse"
-			data-parent="#accordion" data-target="#collapse2">Geographic Location</div>
-		<div id="collapse2" class="panel-collapse collapse">
-			<button id="startgps"
-				onclick="gpsState=true;startGPS();document.getElementById('startgps').style.visibility = 'hidden';document.getElementById('stopgps').style.visibility = 'visible';"
-				type="button">
-				Start</button>&nbsp;&nbsp;&nbsp;&nbsp;<button id="stopgps"
-				onclick="gpsState=false;document.getElementById('startgps').style.visibility = 'visible';document.getElementById('stopgps').style.visibility = 'hidden';"
-				type="button" style="visibility:hidden;">
-				Stop</button><br />
-			<div id="long"></div>
-			<div id="lat"></div>
-			<div id="accu"></div>
-			<div id="alti"></div>
-			<div id="altiaccu"></div><br />
-			<div id="gpserror">Make sure your GPS feature is activated.</div>
-
-
-		</div>
-	</div>
-
-
-
-
-
+      <p class="small text-muted">
+        Location permission is requested only after you press Start. Tracking stops
+        automatically when you leave this page, press Stop, pause, or close the app.
+      </p>
+    </div>
+  </div>
 </div>

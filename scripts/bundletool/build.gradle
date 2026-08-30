@@ -1,0 +1,25 @@
+repositories {
+    google()
+    mavenCentral()
+}
+
+configurations {
+    bundletoolClasspath
+}
+
+dependencies {
+    bundletoolClasspath 'com.android.tools.build:bundletool:1.18.3'
+}
+
+tasks.register('runBundletool', JavaExec) {
+    classpath = configurations.bundletoolClasspath
+    mainClass = 'com.android.tools.build.bundletool.BundleToolMain'
+
+    def command = providers.gradleProperty('bundletoolCommand').get()
+    def bundlePath = providers.gradleProperty('bundlePath').get()
+    if (command == 'dump') {
+        args 'dump', 'manifest', "--bundle=${bundlePath}", '--module=base'
+    } else {
+        args command, "--bundle=${bundlePath}"
+    }
+}
